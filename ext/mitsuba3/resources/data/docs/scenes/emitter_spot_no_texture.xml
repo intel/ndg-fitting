@@ -1,0 +1,25 @@
+<scene version="2.1.0">
+    <path value="../../common"/>
+
+    <emitter type="constant">
+        <rgb name="radiance" value="0.1"/>
+    </emitter>
+
+    <emitter type="spot">
+        <rgb name="intensity" value="200, 0, 0" />
+        <float name="cutoff_angle" value="20" />
+        <transform name="to_world">
+            <lookat origin="4.0, 0.0, 3.5" target="0.0, 0.0, 1.0" up="-1, 0, 0" />
+        </transform>
+    </emitter>
+
+    <emitter type="spot">
+        <rgb name="intensity" value="0, 0, 200" />
+        <float name="cutoff_angle" value="20" />
+        <transform name="to_world">
+            <lookat origin="0.3, -4.0, 3.5" target="0.0, 0.0, 1.0" up="-1, 0, 0" />
+        </transform>
+    </emitter>
+
+    <include filename="include/emitter_scene.xml"/>
+</scene>

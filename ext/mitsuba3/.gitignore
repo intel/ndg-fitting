@@ -1,0 +1,30 @@
+# SublimeText
+*.sublime-project
+*.sublime-workspace
+
+# VS & VSCode
+/.vscode
+/.vs
+
+# Jupyter
+/.ipynb_checkpoints
+
+# Python
+__pycache__
+*.pyc
+/wheelhouse
+
+# macOS
+\.DS_Store
+
+# Default build directory
+/build*
+
+# Auto-generated documentation files
+/docs/generated/plugins_*.rst
+/docs/src/rendering
+/docs/src/inverse_rendering
+/docs/src/others
+/docs/src/quickstart
+/docs/src/generated
+/docs/resources

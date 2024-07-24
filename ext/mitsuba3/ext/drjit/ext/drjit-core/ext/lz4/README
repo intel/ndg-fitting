@@ -1,0 +1,6 @@
+This is a copy of 'lz4.h/cpp' and 'xxhash.h/c' from the lz4 [1] repository. Why
+a copy and not a Git submodule? The reason is the odd licensing policy of lz4:
+it uses multiple licenses for different parts of the repository. To be on the
+safe side, this is a copy of the strictly BSD-licensed implementation portions.
+
+[1] https://github.com/lz4/lz4 (rev. f39b79fb02962a1cd880bbdecb6dffba4f754a11).

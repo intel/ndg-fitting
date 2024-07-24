@@ -1,0 +1,26 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<bsdf type="twosided" id="object_bsdf">
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.2, 0.25, 0.7"/>
+        </bsdf>
+    </bsdf>
+
+    <shape type="ply">
+        <string name="filename" value="meshes/bunny.ply"/>
+		<transform name="to_world">
+			<scale value="12"/>
+			<rotate z="1" angle="130"/>
+			<rotate y="1" angle="70"/>
+			<rotate x="1" angle="-50"/>
+			<rotate z="1" angle="-50"/>
+			<rotate y="1" angle="-2"/>
+			<rotate x="1" angle="12"/>
+			<translate x="0.3" y="0" z="-0.3"/>
+		</transform>
+        <ref id="object_bsdf"/>
+    </shape>
+
+    <include filename="include/shape_scene.xml"/>
+</scene>

@@ -1,0 +1,18 @@
+<scene version="2.1.0">
+    <path value="../../common"/>
+
+    <bsdf type="bumpmap" id="object_bsdf">
+        <float name="scale" value="0.02"/>
+        <texture name="floor_tiles_bumpmap" type="bitmap">
+            <boolean name="raw" value="true"/>
+            <string name="filename" value="textures/floor_tiles_bumpmap.png"/>
+        </texture>
+        <bsdf type="roughplastic">
+            <texture name="diffuse_reflectance" type="bitmap">
+                <string name="filename" value="textures/floor_tiles.jpg"/>
+            </texture>
+        </bsdf>
+	</bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

@@ -1,0 +1,9 @@
+<scene version="3.0.0">
+    <include filename="fragments/base.xml"/>
+    <include filename="fragments/bsdfs-spectral.xml"/>
+    <include filename="fragments/shapes.xml"/>
+
+    <emitter type="area" id="area-emitter">
+        <spectrum name="radiance" value="400:0, 500:8, 600:15.6, 700:18.4"/>
+    </emitter>
+</scene>

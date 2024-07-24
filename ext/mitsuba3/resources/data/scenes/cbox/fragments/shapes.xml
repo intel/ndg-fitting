@@ -1,0 +1,40 @@
+<scene version="3.0.0">
+
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_luminaire.obj"/>
+        <transform name="to_world">
+            <translate x="0" y="-0.5" z="0"/>
+        </transform>
+        <ref id="light"/>
+        <ref id="area-emitter"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_floor.obj"/>
+        <ref id="white"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_ceiling.obj"/>
+        <ref id="white"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_back.obj"/>
+        <ref id="white"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_greenwall.obj"/>
+        <ref id="green"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_redwall.obj"/>
+        <ref id="red"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_smallbox.obj"/>
+        <ref id="box"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/cbox_largebox.obj"/>
+        <ref id="box"/>
+    </shape>
+
+</scene>

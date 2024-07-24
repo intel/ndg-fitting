@@ -1,0 +1,137 @@
+<scene version="3.0.0">
+    <path value="../../../common"/>
+
+    <default name="resx" value="512"/>
+    <default name="resy" value="64"/>
+    <default name="spp" value="32"/>
+    <default name="integrator" value="ptracer"/>
+    <default name="max_depth" value="4"/>
+
+    <!-- NOTE: since the particle tracer does not support AOVs, enable this
+         integrator instead when generating reference images for test_renders.py -->
+    <!-- <integrator type="moment">
+        <integrator type="path">
+            <integer name="max_depth" value="$max_depth"/>
+        </integrator>
+    </integrator> -->
+    <integrator type="$integrator">
+        <integer name="max_depth" value="$max_depth"/>
+    </integrator>
+
+    <sensor type="perspective">
+        <string name="fov_axis" value="x"/>
+        <float name="fov" value="70"/>
+
+        <transform name="to_world">
+            <lookat origin="0, 5, -25" target="0, 1.3, 0" up="0, 1, 0"/>
+        </transform>
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+        <film type="hdrfilm">
+            <integer name="width" value="$resx"/>
+            <integer name="height" value="$resy"/>
+            <rfilter type="box"/>
+            <!-- <rfilter type="gaussian"/> -->
+            <string name="pixel_format" value="rgb"/>
+        </film>
+    </sensor>
+
+
+    <bsdf id="white-bsdf" type="diffuse">
+        <rgb name="reflectance" value="1.0"/>
+    </bsdf>
+
+    <shape type="rectangle" id="receiver-plane">
+        <ref id="white-bsdf"/>
+        <transform name="to_world">
+            <scale value="20.0, 3.0, 1.0"/>
+            <rotate angle="180.0" y="1.0"/>
+            <rotate angle="90.0" x="1.0"/>
+        </transform>
+    </shape>
+    <shape type="rectangle" id="backsplash-plane">
+        <ref id="white-bsdf"/>
+        <transform name="to_world">
+            <scale value="20.0, 3.0, 1.0"/>
+            <rotate angle="180.0" y="1.0"/>
+            <!-- <rotate angle="90.0" x="1.0"/> -->
+            <translate z="3.0"/>
+        </transform>
+    </shape>
+
+    <!-- EMITTERS -->
+    <!-- <emitter id="light_0" type="constant">
+        <rgb name="radiance" value="0.05"/>
+    </emitter> -->
+    <!-- <emitter id="light_0" type="envmap">
+        <string name="filename" value="textures/museum.exr"/>
+        <float name="scale" value="0.5"/>
+    </emitter> -->
+
+    <shape type="rectangle">
+        <ref id="white-bsdf"/>
+        <transform name="to_world">
+            <scale value="2.0, 2.0, 1.0"/>
+            <rotate angle="110.0" x="1.0"/>
+            <translate x="10" y="2"/>
+        </transform>
+
+        <emitter type="area" id="light_1">
+            <rgb name="radiance" value="0.2, 0.4, 0.6"/>
+        </emitter>
+    </shape>
+
+    <shape type="rectangle">
+        <ref id="white-bsdf"/>
+        <transform name="to_world">
+            <scale value="2.0, 2.0, 1.0"/>
+            <rotate angle="110.0" x="1.0"/>
+            <translate x="4" y="2"/>
+        </transform>
+
+        <emitter type="area" id="light_2">
+            <texture name="radiance" type="bitmap">
+                <string name="filename" value="textures/flower.bmp"/>
+            </texture>
+        </emitter>
+    </shape>
+
+    <emitter id="light_3" type="spot">
+        <rgb name="intensity" value="15.0"/>
+        <float name="cutoff_angle" value="30"/>
+        <float name="beam_width" value="15"/>
+        <transform name="to_world">
+            <lookat origin="0, 3, 0" target="0, 0, 0" up="0, 0, 1"/>
+        </transform>
+    </emitter>
+
+    <emitter id="light_4" type="spot">
+        <rgb name="intensity" value="30.0"/>
+        <texture name="texture" type="bitmap">
+            <string name="filename" value="textures/flower.bmp"/>
+        </texture>
+        <float name="cutoff_angle" value="30"/>
+        <float name="beam_width" value="15"/>
+        <transform name="to_world">
+            <lookat origin="-4, 3, 0" target="-4, 0, 0" up="0, 0, 1"/>
+        </transform>
+    </emitter>
+
+    <emitter id="light_5" type="projector">
+        <float name="scale" value="15.0"/>
+        <texture name="irradiance" type="bitmap">
+            <string name="filename" value="textures/flower.bmp"/>
+        </texture>
+        <transform name="to_world">
+            <lookat origin="-8, 6, 0" target="-8, 0, 0" up="0, 0, 1"/>
+        </transform>
+    </emitter>
+
+    <emitter id="light_6" type="point">
+        <rgb name="intensity" value="5.0"/>
+        <transform name="to_world">
+            <lookat origin="-14, 2, 0" target="-14, 0, 0" up="0, 0, 1"/>
+        </transform>
+    </emitter>
+</scene>

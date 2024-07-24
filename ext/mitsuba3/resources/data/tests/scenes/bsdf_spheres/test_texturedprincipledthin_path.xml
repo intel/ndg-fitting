@@ -1,0 +1,47 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <bsdf type="principledthin" id="material">
+        <rgb name="base_color" value="0.7,0.1,0.1 "/>
+        <texture name="anisotropic" type="checkerboard">
+            <transform name="to_uv">
+                <scale x="25" y="25"/>
+            </transform>
+            <float name="color0" value="0.05"/>
+            <float name="color1" value="0.8"/>
+        </texture>
+        <texture name="spec_trans" type="checkerboard">
+            <transform name="to_uv">
+                <scale x="25" y="25"/>
+            </transform>
+            <float name="color0" value="0.2"/>
+            <float name="color1" value="0.8"/>
+        </texture>
+        <texture name="diff_trans" type="checkerboard">
+            <transform name="to_uv">
+                <scale x="12.5" y="12.5"/>
+            </transform>
+            <float name="color0" value="0.4"/>
+            <float name="color1" value="1.4"/>
+        </texture>
+        <texture name="sheen" type="checkerboard">
+            <transform name="to_uv">
+                <scale x="12.5" y="12.5"/>
+            </transform>
+            <float name="color0" value="0.1"/>
+            <float name="color1" value="0.8"/>
+        </texture>
+
+        <float name="eta" value="1.33" />
+    </bsdf>
+
+    <shape type="rectangle">
+        <ref id="material" />
+        <transform name="to_world">
+            <rotate y="1" angle="270"/>
+            <scale value="0.7"/>
+        </transform>
+    </shape>
+
+    <include filename="fragments/single_sphere.xml"/>
+</scene>

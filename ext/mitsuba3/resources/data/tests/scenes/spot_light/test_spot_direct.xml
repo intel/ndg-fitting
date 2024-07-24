@@ -1,0 +1,52 @@
+<scene version="3.0.0">
+    <path value="../../../common"/>
+
+    <default name="spp" value="32"/>
+    <default name="integrator" value="direct"/>
+
+    <emitter id="light_0" type="constant">
+        <rgb name="radiance" value="0.1"/>
+    </emitter>
+
+    <emitter id="light_1" type="spot">
+        <rgb name="intensity" value="5.0"/>
+        <texture name="texture" type="bitmap">
+            <string name="filename" value="textures/de_bruijn_pattern.png"/>
+        </texture>
+        <float name="cutoff_angle" value="20"/>
+        <float name="beam_width" value="15"/>
+        <transform name="to_world">
+            <lookat origin="0, 0, 0" target="0, 0, 1" up="0, 1, 0"/>
+        </transform>
+    </emitter>
+
+    <integrator type="moment">
+        <integrator type="$integrator"/>
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="fov" value="50"/>
+        <transform name="to_world">
+            <lookat origin="0, 0, 0" target="0, 0, 1" up="0, 1, 0"/>
+        </transform>
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+        <film type="hdrfilm">
+            <integer name="width" value="48"/>
+            <integer name="height" value="48"/>
+            <rfilter type="box"/>
+        </film>
+    </sensor>
+
+    <shape type="rectangle">
+        <bsdf id="diffuse_bsdf" type="diffuse">
+            <rgb name="reflectance" value="1.0"/>
+        </bsdf>
+        <transform name="to_world">
+            <scale value="3.0, 3.0, 1.0"/>
+            <rotate angle="180.0" y="1.0"/>
+            <translate value="0.0, 0.0, 1.0"/>
+        </transform>
+    </shape>
+</scene>

@@ -1,0 +1,548 @@
+@String{SIGTOG = "ACM Trans. Graph. (Proc. SIGGRAPH)" }
+
+@Book{Collett1993PolarizedLight,
+    author = { Collett, Edward},
+    title = { Polarized light : fundamentals and application},
+    isbn = { 0824787293 },
+    publisher = { Marcel Dekker New York },
+    year = { 1993 }
+}
+
+@article{Jarabo2018BidirectionalPol,
+  author = {Jarabo, Adrian and Arellano, Victor},
+  title = {Bidirectional Rendering of Vector Light Transport},
+  journal = {Computer Graphics Forum},
+  volume = {37},
+  number = {6},
+  keywords = {global illumination, rendering, ray tracing, rendering, I.3.7 Computer Graphics: Three-Dimensional Graphics and Realism—Raytracing},
+  year = {2018}
+}
+
+@inproceedings {Mojzik2016BidirectionalPol,
+  booktitle = {Eurographics Symposium on Rendering},
+  title = {{Bi-Directional Polarised Light Transport}},
+  author = {Mojzik, Michal and Skrivan, Tomas and Wilkie, Alexander and Krivanek, Jaroslav},
+  year = {2016},
+}
+
+@inproceedings{Kensler2013CorrelatedMS,
+  title={Correlated Multi-Jittered Sampling},
+  author={Andrew E. Kensler},
+  year={2013}
+}
+
+@article {Kollig2002Efficient,
+    author = {Kollig, Thomas and Keller, Alexander},
+    title = {{Efficient Multidimensional Sampling}},
+    journal = {Computer Graphics Forum},
+    year = {2002},
+    editor = {},
+    volume = {21},
+    number = {3},
+    publisher = {Blackwell Publishers, Inc and the Eurographics Association},
+    pages = {557-563},
+    DOI = {10.1111/1467-8659.00706}
+}
+
+@article{jarosz19orthogonal,
+    author = "Jarosz, Wojciech and Enayet, Afnan and Kensler, Andrew and Kilpatrick, Charlie and Christensen, Per",
+    title = "Orthogonal array sampling for {{Monte}} {{Carlo}} rendering",
+    journal = "Computer Graphics Forum (Proceedings of EGSR)",
+    year = "2019",
+    volume = "38",
+    number = "4",
+    month = jul,
+    pages = "135--147",
+    doi = "10/gf6rx5",
+    publisher = "The Eurographics Association",
+    abstract = "We generalize N-rooks, jittered, and (correlated) multi-jittered sampling to higher dimensions by importing and improving upon a class of techniques called orthogonal arrays from the statistics literature. Renderers typically combine or ``pad'' a collection of lower-dimensional (e.g. 2D and 1D) stratified patterns to form higher-dimensional samples for integration. This maintains stratification in the original dimension pairs, but looses it for all other dimension pairs. For truly multi-dimensional integrands like those in rendering, this increases variance and deteriorates its rate of convergence to that of pure random sampling. Care must therefore be taken to assign the primary dimension pairs to the dimensions with most integrand variation, but this complicates implementations. We tackle this problem by developing a collection of practical, in-place multi-dimensional sample generation routines that stratify points on all t-dimensional and 1-dimensional projections simultaneously. For instance, when t=2, any 2D projection of our samples is a (correlated) multi-jittered point set. This property not only reduces variance, but also simplifies implementations since sample dimensions can now be assigned to integrand dimensions arbitrarily while maintaining the same level of stratification. Our techniques reduce variance compared to traditional 2D padding approaches like PBRT's (0,2) and Stratified samplers, and provide quality nearly equal to state-of-the-art QMC samplers like Sobol and Halton while avoiding their structured artifacts as commonly seen when using a single sample set to cover an entire image. While in this work we focus on constructing finite sampling point sets, we also discuss potential avenues for extending our work to progressive sequences (more suitable for incremental rendering) in the future."
+}
+
+
+@article{Jakob10,
+    author = {Wenzel Jakob and Jonathan T. Moon and Adam Arbree and Kavita Bala and Steve Marschner},
+    title = {A Radiative Transfer Framework for Rendering Materials with Anisotropic Structure},
+    journal = SIGTOG,
+    volume = {29},
+    number = {10},
+    pages = {53:1--53:13},
+    year = {2010},
+    month = jul,
+    doi = {10.1145/1778765.1778790}
+}
+
+@article{Jakob2019Spectral,
+	author = {Wenzel Jakob and Johannes Hanika},
+	title = {A Low-Dimensional Function Space for Efficient Spectral Upsampling},
+	journal = {Computer Graphics Forum (Proceedings of Eurographics)},
+	volume = {38},
+	number = {2},
+	year = {2019},
+	month = mar,
+    url={https://rgl.epfl.ch/publications/Jakob2019Spectral}
+}
+
+@article{Miller19null,
+  author     = {Miller, Bailey and Georgiev, Iliyan and Jarosz, Wojciech},
+  title      = {A Null-Scattering Path Integral Formulation of Light Transport},
+  year       = {2019},
+  issue_date = {July 2019},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {38},
+  number     = {4},
+  issn       = {0730-0301},
+  url        = {https://doi.org/10.1145/3306346.3323025},
+  doi        = {10.1145/3306346.3323025},
+  journal    = SIGTOG,
+  month      = jul,
+  articleno  = {44},
+  numpages   = {13}
+}
+
+
+@article{NimierDavidVicini2019Mitsuba2,
+     author = {Merlin Nimier-David and Delio Vicini and Tizian Zeltner and Wenzel Jakob},
+     title = {Mitsuba 2: A Retargetable Forward and Inverse Renderer},
+     journal = {Transactions on Graphics (Proceedings of SIGGRAPH Asia)},
+     volume = {38},
+     number = {6},
+     year = {2019},
+     month = dec,
+     url={https://rgl.epfl.ch/publications/NimierDavidVicini2019Mitsuba2}
+}
+
+@article{kingma2014adam,
+  title={Adam: A method for stochastic optimization},
+  author={Kingma, Diederik P and Ba, Jimmy},
+  journal={arXiv preprint arXiv:1412.6980},
+  year={2014}
+}
+
+@book{Palik1998Handbook,
+	title     = {Handbook of optical constants of solids},
+	author    = {Palik, E.D. and Ghosh, G.},
+	year      = {1998},
+	publisher = {Academic press}
+}
+
+@article{Walter07Microfacet,
+  author    = {Bruce Walter and Stephen R. Marschner and Hongsong Li and Kenneth E. Torrance},
+  title     = {{Microfacet Models for Refraction through Rough Surfaces}},
+  journal   = {Rendering Techniques (Proceedings EG Symposium on Rendering)},
+  year      = {2007}
+}
+
+@article{Disney2012,
+  author    = {Brent Burley},
+  title     = {{Physically Based Shading at Disney}},
+  journal   = {SIGGRAPH 2012 Course Notes},
+  url       = {https://www.disneyanimation.com/publications/physically-based-shading-at-disney/},
+  year      = {2012}
+}
+
+@article{Disney2015,
+  author    = {Brent Burley},
+  title     = {{Extending the Disney BRDF to a BSDF with Integrated Subsurface Scattering}},
+  url       = {https://blog.selfshadow.com/publications/s2015-shading-course/#course_content},
+  journal   = {SIGGRAPH 2015 Course Notes},
+  year      = {2015}
+}
+
+@article{Trowbridge19975Average,
+	author = {T. S. Trowbridge and K. P. Reitz},
+	journal = {J. Opt. Soc. Am.},
+	number = {5},
+	pages = {531--536},
+	publisher = {OSA},
+	title = {Average irregularity representation of a rough surface for ray reflection},
+	volume = {65},
+	month = {May},
+	year = {1975}
+}
+
+@article{Heitz1014Importance,
+  author = {Heitz, Eric and D'Eon, Eugene},
+  title = {Importance Sampling Microfacet-Based BSDFs using the Distribution of Visible Normals},
+  journal = {Computer Graphics Forum},
+  publisher = {Blackwell Publishing},
+  year = {2014},
+  month = Jun
+}
+
+@article{Heitz2015SGGX,
+    author = {Heitz, Eric and Dupuy, Jonathan and Crassin, Cyril and Dachsbacher, Carsten},
+    title = {The SGGX Microflake Distribution},
+    year = {2015},
+    issue_date = {August 2015},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {34},
+    number = {4},
+    issn = {0730-0301},
+    url = {https://doi.org/10.1145/2766988},
+    doi = {10.1145/2766988},
+    journal = SIGTOG,
+    month = jul,
+    articleno = {48},
+    numpages = {11},
+}
+
+@article{Henyey1941Diffuse,
+	title={Diffuse radiation in the galaxy},
+	author={Henyey, L.G. and Greenstein, J.L.},
+	journal={The Astrophysical Journal},
+	volume={93},
+	pages={70--83},
+	year={1941}
+}
+
+@article{MitchellNetravali88,
+  author = {Mitchell, Don P. and Netravali, Arun N.},
+  title = {Reconstruction Filters in Computer-Graphics},
+  year = {1988},
+  issue_date = {August 1988},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {22},
+  number = {4},
+  issn = {0097-8930},
+  journal = {SIGGRAPH Comput. Graph.},
+  month = jun,
+  pages = {221–228},
+  numpages = {8},
+}
+
+@inproceedings{Sutskever2013Importance,
+    title={On the importance of initialization and momentum in deep learning},
+    author={Sutskever, Ilya and Martens, James and Dahl, George and Hinton, Geoffrey},
+    booktitle={International conference on machine learning},
+    pages={1139--1147},
+    year={2013}
+}
+
+@article{Baek2020Image,
+    author = {Seung-Hwan Baek and Tizian Zeltner and Hyun Jin Ku and Inseung Hwang and Xin Tong and Wenzel Jakob and Min H. Kim},
+    title = {Image-Based Acquisition and Modeling of Polarimetric Reflectance},
+    journal = {Transactions on Graphics (Proceedings of SIGGRAPH)},
+    volume = {39},
+    number = {4},
+    year = {2020},
+    month = jul,
+    doi = {10.1145/3386569.3392387}
+}
+
+@Article{Baek2018Simultaneous,
+    author  = {Seung-Hwan Baek and Daniel S. Jeon and Xin Tong and Min H. Kim},
+    title   = {Simultaneous Acquisition of Polarimetric SVBRDF and Normals},
+    journal = {ACM Transactions on Graphics (Proc. SIGGRAPH Asia 2018)},
+    year    = {2018},
+    volume  = {37},
+    number  = {6},
+    pages   = {268:1--15},
+    doi     = "10.1145/3272127.3275018",
+    url     = "https://dx.doi.org/10.1145/3272127.3275018",
+}
+
+@Article{Kadambi2017,
+    author={Kadambi, Achuta and Taamazyan, Vage and Shi, Boxin and Raskar, Ramesh},
+    title={Depth Sensing Using Geometrically Constrained Polarization Normals},
+    journal={International Journal of Computer Vision},
+    year={2017},
+    month={Dec},
+    day={01},
+    volume={125},
+    number={1},
+    pages={34-51},
+    issn={1573-1405},
+    doi={10.1007/s11263-017-1025-7},
+    url={https://doi.org/10.1007/s11263-017-1025-7}
+}
+
+@book{Veach1998,
+    author = {Veach, Eric},
+    advisor = {Guibas, Leonidas J.},
+    title = {Robust Monte Carlo Methods for Light Transport Simulation},
+    year = {1998},
+    isbn = {0591907801},
+    publisher = {Stanford University},
+    address = {Stanford, CA, USA}
+}
+
+@inproceedings{WilkieWeidlich2012,
+    author = {Wilkie, Alexander and Weidlich, Andrea},
+    title = {Polarised Light in Computer Graphics},
+    year = {2012},
+    isbn = {9781450319133},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2407783.2407791},
+    doi = {10.1145/2407783.2407791},
+    booktitle = {SIGGRAPH Asia 2012 Courses},
+    articleno = {8},
+    numpages = {87},
+    location = {Singapore, Singapore},
+    series = {SA '12}
+}
+
+@Book{Hecht1998,
+    author = "Hecht, Eugene",
+    title = "Optics",
+    publisher = "Addison-Wesley",
+    year =  1998,
+    edition = {4th}
+}
+
+@book{Clarke2009,
+    author = {Clarke, David},
+    publisher = {John Wiley & Sons, Ltd},
+    isbn = {9783527628322},
+    title = {Stellar Polarimetry, Appendix A: The Fresnel Laws},
+    booktitle = {Stellar Polarimetry},
+    chapter = {},
+    pages = {365-385},
+    doi = {https://doi.org/10.1002/9783527628322.app1},
+    year = {2009},
+}
+
+@article{Collett1971,
+    author = {Collett,Edward },
+    title = {Mueller-Stokes Matrix Formulation of Fresnel's Equations},
+    journal = {American Journal of Physics},
+    volume = {39},
+    number = {5},
+    pages = {517-528},
+    year = {1971},
+    doi = {10.1119/1.1986205},
+}
+
+@book{Collett2005,
+    title={Field Guide to Polarization},
+    author={Collett, E.},
+    isbn={9780819458681},
+    lccn={2005006346},
+    series={Field Guide Series},
+    year={2005},
+    publisher={Society of Photo Optical}
+}
+
+@book{PBRT3e,
+    title = {Physically Based Rendering: From Theory to Implementation (3rd ed.)},
+    author = {Matt Pharr and Wenzel Jakob and Greg Humphreys},
+    isbn = {9780128006450},
+    pages = {1266},
+    year = {2016},
+    month = oct,
+    edition = {3rd},
+    publisher = {Morgan Kaufmann Publishers Inc.},
+    address = {San Francisco, CA, USA}
+}
+
+@book{Fresnel1823,
+    title={M{\'e}moire sur la loi des modifications que la r{\'e}flexion imprime {\`a} la lumi{\`e}re polaris{\'e}e},
+    author={Fresnel, Augustin Jean},
+    year={1823},
+    publisher={Acad{\'e}mie des Sciences}
+}
+
+@article{Muller1969,
+    author = {{Muller}, Rolf H.},
+    title = "{Definitions and conventions in ellipsometry}",
+    journal = {Surface Science},
+    year = 1969,
+    month = aug,
+    volume = {16},
+    pages = {14-33},
+    doi = {10.1016/0039-6028(69)90003-X},
+}
+
+@article{Duff2017,
+  author = {Tom Duff and James Burgess and Per Christensen and Christophe Hery and Andrew Kensler and Max Liani and Ryusuke Villemin},
+  title = {Building an Orthonormal Basis, Revisited},
+  year = 2017,
+  month = {March},
+  day = 27,
+  journal = {Journal of Computer Graphics Techniques (JCGT)},
+  volume = 6,
+  number = 1,
+  pages = {1--8},
+  url = {https://jcgt.org/published/0006/01/01/},
+  issn = {2331-7418}
+}
+
+@article{Azzam2004,
+    author = {R. M. A. Azzam},
+    journal = {J. Opt. Soc. Am. A},
+    number = {8},
+    pages = {1559--1563},
+    publisher = {OSA},
+    title = {Phase shifts that accompany total internal reflection at a dielectric--dielectric interface},
+    volume = {21},
+    month = {Aug},
+    year = {2004},
+    url = {https://josaa.osa.org/abstract.cfm?URI=josaa-21-8-1559},
+    doi = {10.1364/JOSAA.21.001559},
+}
+
+@article{Azzam1978,
+    author = {R. M. A. Azzam},
+    journal = {Opt. Lett.},
+    number = {6},
+    pages = {148--150},
+    publisher = {OSA},
+    title = {Photopolarimetric measurement of the Mueller matrix by Fourier analysis of a single detected signal},
+    volume = {2},
+    month = {Jun},
+    year = {1978},
+    url = {https://ol.osa.org/abstract.cfm?URI=ol-2-6-148},
+    doi = {10.1364/OL.2.000148},
+}
+
+@book{Palik1997,
+    author        = "Palik, Edward D and Prucha, Edward J",
+    title         = "{Handbook of optical constants of solids}",
+    publisher     = "Academic Press",
+    address       = "Boston, MA",
+    year          = "1997",
+    url           = "https://cds.cern.ch/record/396087",
+}
+
+@book{Bass2009,
+    author = {Bass, Michael and DeCusatis, Casimer and Enoch, Jay and Lakshminarayanan, Vasudevan and Li, Guifang and Macdonald, Carolyn and Mahajan, Virendra and Van Stryland, Eric},
+    title = {Handbook of Optics, Third Edition Volume I: Geometrical and Physical Optics, Polarized Light, Components and Instruments(Set)},
+    year = {2009},
+    isbn = {0071498893},
+    publisher = {McGraw-Hill, Inc.},
+    address = {USA},
+    edition = {3},
+}
+
+@article{Hauge1980,
+    author = {Hauge, R. H. Muller and Smith, C. G.},
+    journal = {Surface Science},
+    title = {Conventions and Formulas for Using the Mueller-Stokes Calculus in Ellipsometry},
+    year = {1980},
+}
+
+@article{FriedmannSandhu1965,
+    author = {Friedmann, G. and Sandhu, H. S.},
+    title = {Phase Change on Reflection from Isotropic Dielectrics},
+    journal = {American Journal of Physics},
+    volume = {33},
+    number = {2},
+    pages = {135-138},
+    year = {1965},
+    doi = {10.1119/1.1971270},
+}
+
+@INPROCEEDINGS{OhVandervelde2020,
+  author={Oh, Minsu and Vandervelde, Thomas},
+  booktitle={2020 IEEE 63rd International Midwest Symposium on Circuits and Systems (MWSCAS)},
+  title={Bridging the gaps between different sign conventions of Fresnel reflection coefficients towards a universal form},
+  year={2020},
+  volume={},
+  number={},
+  pages={707-713},
+  doi={10.1109/MWSCAS48704.2020.9184440}
+}
+
+@ARTICLE{Salik2012,
+    author = {{Salik}, Ertan},
+    title = "{Quantitative investigation of Fresnel reflection coefficients by polarimetry}",
+    journal = {American Journal of Physics},
+    keywords = {light reflection, physics education, polarimetry, student experiments},
+    year = 2012,
+    month = mar,
+    volume = {80},
+    number = {3},
+    pages = {216-224},
+    doi = {10.1119/1.3672851},
+}
+
+@inproceedings{WilkieWeidlich2010,
+    author = {Wilkie, Alexander and Weidlich, Andrea},
+    title = {A Standardised Polarisation Visualisation for Images},
+    year = {2010},
+    isbn = {9781450305587},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/1925059.1925070},
+    doi = {10.1145/1925059.1925070},
+    booktitle = {Proceedings of the 26th Spring Conference on Computer Graphics},
+    pages = {43–50},
+    numpages = {8},
+    keywords = {visualisation, polarisation, predictive rendering},
+    location = {Budmerice, Slovakia},
+    series = {SCCG '10}
+}
+
+@ARTICLE{WolffKurlander1990,
+  author={Wolff, L.B. and Kurlander, D.J.},
+  journal={IEEE Computer Graphics and Applications},
+  title={Ray tracing with polarization parameters},
+  year={1990},
+  volume={10},
+  number={6},
+  pages={44-55},
+  doi={10.1109/38.62695}
+}
+
+@article{Loubet2019Reparameterizing,
+    author = {Guillaume Loubet and Nicolas Holzschuch and Wenzel Jakob},
+    title = {Reparameterizing discontinuous integrands for differentiable rendering},
+    journal = {Transactions on Graphics (Proceedings of SIGGRAPH Asia)},
+    volume = {38},
+    number = {6},
+    year = {2019},
+    month = dec,
+    doi = {10.1145/3355089.3356510}
+}
+
+@article{Bangaru2020,
+    author = {Bangaru, Sai Praveen and Li, Tzu-Mao and Durand, Fr\'{e}do},
+    title = {Unbiased Warped-Area Sampling for Differentiable Rendering},
+    year = {2020},
+    issue_date = {December 2020},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {39},
+    number = {6},
+    issn = {0730-0301},
+    url = {https://doi.org/10.1145/3414685.3417833},
+    doi = {10.1145/3414685.3417833},
+    abstract = {Differentiable rendering computes derivatives of the light transport equation with respect to arbitrary 3D scene parameters, and enables various applications in inverse rendering and machine learning. We present an unbiased and efficient differentiable rendering algorithm that does not require explicit boundary sampling. We apply the divergence theorem to the derivative of the rendering integral to convert the boundary integral into an area integral. We rewrite the converted area integral to a form that is suitable for Monte Carlo rendering. We then develop an efficient Monte Carlo sampling algorithm for solving the area integral. Our method can be easily plugged into a traditional path tracer and does not require dedicated data structures for sampling boundaries.We analyze the convergence properties through bias-variance metrics, and demonstrate our estimator's advantages over existing methods for some synthetic inverse rendering examples.},
+    journal = {ACM Trans. Graph.},
+    month = {nov},
+    articleno = {245},
+    numpages = {18},
+    keywords = {differentiable rendering, inverse graphics, differentiating visibility, light transport}
+}
+
+@ARTICLE{Vicini2021,
+    author = {Vicini, Delio and Speierer, S\'{e}bastien and Jakob, Wenzel},
+    title = {Path Replay Backpropagation: Differentiating Light Paths Using Constant Memory and Linear Time},
+    year = {2021},
+    issue_date = {August 2021},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {40},
+    number = {4},
+    issn = {0730-0301},
+    url = {https://doi.org/10.1145/3450626.3459804},
+    doi = {10.1145/3450626.3459804},
+    journal = {ACM Trans. Graph.},
+    month = {jul},
+    articleno = {108},
+    numpages = {14},
+    keywords = {gradient-based optimization, radiative backpropagation, differentiable rendering, inverse rendering}
+}
+
+@article{Zeltner2021MonteCarlo,
+    author = {Tizian Zeltner and Sébastien Speierer and Iliyan Georgiev and Wenzel Jakob},
+    title = {Monte Carlo Estimators for Differential Light Transport},
+    journal = {Transactions on Graphics (Proceedings of SIGGRAPH)},
+    volume = {40},
+    number = {4},
+    year = {2021},
+    month = aug,
+    doi = {10.1145/3450626.3459807} }

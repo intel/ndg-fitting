@@ -1,0 +1,16 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="roughdielectric">
+            <string name="distribution" value="beckmann"/>
+            <float name="alpha" value="0.02"/>
+            <string name="int_ior" value="bk7"/>
+            <string name="ext_ior" value="air"/>
+        </bsdf>
+    </shape>
+
+    <include filename="fragments/single_sphere.xml"/>
+</scene>

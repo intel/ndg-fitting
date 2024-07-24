@@ -1,0 +1,21 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<bsdf type="diffuse" id="object_bsdf">
+        <texture name="reflectance" type="checkerboard">
+            <transform name="to_uv">
+                <scale x="10" y="10" />
+            </transform>
+        </texture>
+    </bsdf>
+
+    <shape type="sphere">
+		<transform name="to_world">
+			<rotate z="1" angle="225"/>
+			<translate x="0" y="0" z="1"/>
+		</transform>
+        <ref id="object_bsdf"/>
+    </shape>
+
+    <include filename="include/shape_scene.xml"/>
+</scene>

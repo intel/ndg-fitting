@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="3.0.0" >
+	<integrator type="path" >
+		<integer name="max_depth" value="12" />
+	</integrator>
+
+	<sensor type="perspective" >
+		<float name="fov" value="36.5" />
+		<float name="near_clip" value="0.1" />
+		<float name="far_clip" value="1000.0" />
+		<transform name="to_world" >
+			<lookat origin="-6, 0, 0" target="0, 0, 0" up="0, 0, 1"/>
+		</transform>
+		<sampler type="independent" >
+			<integer name="sample_count" value="256" />
+		</sampler>
+		<film type="hdrfilm" >
+			<integer name="width" value="300" />
+			<integer name="height" value="300" />
+			<string name="file_format" value="openexr" />
+			<string name="pixel_format" value="rgb" />
+			<boolean name="banner" value="false" />
+			<rfilter type="tent" />
+		</film>
+	</sensor>
+
+	<bsdf type="principledthin" id="Material" >
+		<rgb name="base_color" value="1.0,1.0,1.0"/>
+	</bsdf>
+
+	<bsdf type="twosided" id="Background" >
+		<bsdf type="diffuse" >
+			<texture name="reflectance" type="checkerboard" >
+				<rgb name="color0" value="0.01, 0.01, 0.01"/>
+				<rgb name="color1" value="0.9, 0.9, 0.9"/>
+				<transform name="to_uv">
+                	<!-- Scale texture by factor of 2 -->
+                	<scale x="6" y="6"/>
+                	<!-- Offset texture by [0.5, 1.0] -->
+                	<translate x="0.5" y="0.5"/>
+            	</transform>
+        	</texture>
+		</bsdf>
+	</bsdf>
+
+	<shape type="Rectangle">
+		<ref id="Background" />
+		<transform name="to_world">
+            <rotate y="1" angle="270"/>
+            <scale value="6"/>
+            <translate x="6" y="0" z="0"/>
+        </transform>
+	</shape>
+
+	<shape type="Rectangle">
+		<ref id="Material" />
+		<transform name="to_world">
+            <rotate y="1" angle="270"/>
+            <scale value="1.35"/>
+        </transform>
+	</shape>
+
+    <emitter type="envmap" >
+		<transform name="to_world" >
+			<matrix value="-0.922278 0 0.386527 0 0 1 0 0 -0.386527 0 -0.922278 1.17369 0 0 0 1"/>
+		</transform>
+		<string name="filename" value="envmap.hdr" />
+	</emitter>
+
+</scene>

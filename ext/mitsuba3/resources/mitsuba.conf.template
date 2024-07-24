@@ -1,0 +1,406 @@
+{
+    # This file specifies the variants of Mitsuba that should be compiled.
+    # Note that enabling many features here can lead to slow build times
+    # and large binaries.
+    #
+    # Each variant can make use of the following features, which can be
+    # combined by concatenating them into a longer name (using underscores,
+    # as in "scalar_spectral_polarized")
+    #
+    # 1. Basic arithmetic type used for computation
+    #
+    #    - 'scalar': Computation is done on the CPU using ordinary
+    #      floating point arithmetic as in Mitsuba 0.5. The renderer
+    #      processes individual rays at a time. This mode is the
+    #      easiest to understand and therefore preferred for fixing
+    #      compilation errors and debugging the renderer.
+    #
+    #    - 'llvm': The computation required to render a scene is
+    #      just-in-time compiled to parallel CPU kernels that process
+    #      many rays at the same time. This uses the LLVM compiler
+    #      framework, which is detected and loaded at runtime.
+    #
+    #    - 'cuda': The computation required to render a scene is
+    #      just-in-time compiled to parallel GPU kernels that process
+    #      many rays at the same time. A somewhat recent (Maxwell or
+    #      newer) NVIDIA graphics card is required to use this mode,
+    #      along with driver version 455.28 or newer.
+    #
+    # 2. Automatic Differentiation (optional)
+    #
+    #    - 'ad': When this flag is specified, the computation additionally
+    #      keeps track of derivatives. These derivatives can then be used to
+    #      solve challenging inverse problems using gradient-based
+    #      optimization.
+    #
+    # 3. Representation of color
+    #
+    #    - 'mono': Monochromatic simulation, i.e., simply don't simulate
+    #      color at all. This is useful when simulating scenes that are
+    #      inherently monochromatic (e.g. with single-frequency laser
+    #      illumination.) All input scene data is converted to grayscale.
+    #
+    #    - 'rgb': Simulate light transport using an RGB-based color
+    #      representation (as e.g. done in Mitsuba 0.5). This is not
+    #      particular realistic and somewhat arbitrary as multiplying
+    #      RGB colors can yield dramatically different answers depending
+    #      on the underlying RGB color space.
+    #
+    #    - 'spectral': Integrate over continuous wavelengths spanning the
+    #      visible spectrum (360..830 nm). Any RGB data provided in the input
+    #      scene will be up-sampled into plausible equivalent spectra
+    #      in this case.
+    #
+    # 4. Polarization (optional)
+    #
+    #    - "polarized": when this flag is specified, Mitsuba will additionally
+    #      keep track of the polarization state of light. Builtin materials
+    #      based on specular reflection and refraction will also switch to the
+    #      polarized form of the Fresnel equations.
+    #
+    # 5. Higher precision (optional)
+    #
+    #    - 'double': Mitsuba normally relies on single precision arithmetic.
+    #       When this flag is specified, double precision will be used
+    #       instead, which can be useful to check if an issue arises due to
+    #       insufficient numerical accuracy. Note that Embree and OptiX don't
+    #       support double precision, hence ray-tracing operations will run in
+    #       reduced (single) precision in those modes. The only way to use
+    #       precision for everything including ray tracing is to render on the
+    #       CPU and disable Embree in CMake. Also note that double precision
+    #       arithmetic runs with greatly reduced throughput (1/64th of FP32) on
+    #       recent NVIDIA GPUs.
+    #
+    # As mentioned earlier, these 5 "feature dimensions" can be concatenated
+    # into longer variant names like "llvm_ad_spectral_polarized_double" that
+    # are defined in more detail in the remainder of this file. Note that it is
+    # possible to create additional variants that are not explicitly mentioned
+    # here. To do so, you will have to create a corresponding entry specifying
+    # 'float' and 'spectrum' C++ types.
+
+    # Which variants should be compiled? If mitsuba is launched without any
+    # specific mode parameter, the first variant of the list below will be
+    # used. Note that the "scalar_rgb" variant *must* be included at the
+    # moment.
+
+    "enabled": [
+        @INSERT_CONFIGURATIONS_HERE@
+    ],
+
+    # The variant below will automatically be set when importing the Python
+    # mitsuba module. If the value is "", the desired variant will need to be
+    # specified using "mitsuba.set_variant(..)" before importing any packages.
+
+    "python-default": "",
+
+    # -------------------------------------------------------------
+    # The remainder of this file defines the variants and does not
+    # need to be edited (unless you wish to create new variants).
+    # -------------------------------------------------------------
+
+    # Scalar variant definitions
+
+    "scalar_mono": {
+        "float": "float",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "scalar_mono_double": {
+        "float": "double",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "scalar_mono_polarized": {
+        "float": "float",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "scalar_mono_polarized_double": {
+        "float": "double",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "scalar_rgb": {
+        "float": "float",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "scalar_rgb_double": {
+        "float": "double",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "scalar_rgb_polarized": {
+        "float": "float",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "scalar_rgb_polarized_double": {
+        "float": "double",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "scalar_spectral": {
+        "float": "float",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "scalar_spectral_double": {
+        "float": "double",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "scalar_spectral_polarized": {
+        "float": "float",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    "scalar_spectral_polarized_double": {
+        "float": "double",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    # LLVM variant definitions
+
+    "llvm_mono": {
+        "float": "dr::LLVMArray<float>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "llvm_mono_double": {
+        "float": "dr::LLVMArray<double>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "llvm_mono_polarized": {
+        "float": "dr::LLVMArray<float>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "llvm_mono_polarized_double": {
+        "float": "dr::LLVMArray<double>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "llvm_rgb": {
+        "float": "dr::LLVMArray<float>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "llvm_rgb_double": {
+        "float": "dr::LLVMArray<double>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "llvm_rgb_polarized": {
+        "float": "dr::LLVMArray<float>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "llvm_rgb_polarized_double": {
+        "float": "dr::LLVMArray<double>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "llvm_spectral": {
+        "float": "dr::LLVMArray<float>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "llvm_spectral_double": {
+        "float": "dr::LLVMArray<double>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "llvm_spectral_polarized": {
+        "float": "dr::LLVMArray<float>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    "llvm_spectral_polarized_double": {
+        "float": "dr::LLVMArray<double>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    "llvm_ad_mono": {
+        "float": "dr::DiffArray<dr::LLVMArray<float>>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "llvm_ad_mono_double": {
+        "float": "dr::DiffArray<dr::LLVMArray<double>>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "llvm_ad_mono_polarized": {
+        "float": "dr::DiffArray<dr::LLVMArray<float>>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "llvm_ad_mono_polarized_double": {
+        "float": "dr::DiffArray<dr::LLVMArray<double>>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "llvm_ad_rgb": {
+        "float": "dr::DiffArray<dr::LLVMArray<float>>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "llvm_ad_rgb_double": {
+        "float": "dr::DiffArray<dr::LLVMArray<double>>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "llvm_ad_rgb_polarized": {
+        "float": "dr::DiffArray<dr::LLVMArray<float>>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "llvm_ad_rgb_polarized_double": {
+        "float": "dr::DiffArray<dr::LLVMArray<double>>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "llvm_ad_spectral": {
+        "float": "dr::DiffArray<dr::LLVMArray<float>>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "llvm_ad_spectral_double": {
+        "float": "dr::DiffArray<dr::LLVMArray<double>>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "llvm_ad_spectral_polarized": {
+        "float": "dr::DiffArray<dr::LLVMArray<float>>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    "llvm_ad_spectral_polarized_double": {
+        "float": "dr::DiffArray<dr::LLVMArray<double>>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    # CUDA variant definitions
+
+    "cuda_mono": {
+        "float": "dr::CUDAArray<float>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "cuda_mono_double": {
+        "float": "dr::CUDAArray<double>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "cuda_mono_polarized": {
+        "float": "dr::CUDAArray<float>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "cuda_mono_polarized_double": {
+        "float": "dr::CUDAArray<double>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "cuda_rgb": {
+        "float": "dr::CUDAArray<float>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "cuda_rgb_double": {
+        "float": "dr::CUDAArray<double>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "cuda_rgb_polarized": {
+        "float": "dr::CUDAArray<float>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "cuda_rgb_polarized_double": {
+        "float": "dr::CUDAArray<double>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "cuda_spectral": {
+        "float": "dr::CUDAArray<float>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "cuda_spectral_double": {
+        "float": "dr::CUDAArray<double>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "cuda_spectral_polarized": {
+        "float": "dr::CUDAArray<float>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    "cuda_spectral_polarized_double": {
+        "float": "dr::CUDAArray<double>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    "cuda_ad_mono": {
+        "float": "dr::DiffArray<dr::CUDAArray<float>>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "cuda_ad_mono_double": {
+        "float": "dr::DiffArray<dr::CUDAArray<double>>",
+        "spectrum": "Color<Float, 1>"
+    },
+
+    "cuda_ad_mono_polarized": {
+        "float": "dr::DiffArray<dr::CUDAArray<float>>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "cuda_ad_mono_polarized_double": {
+        "float": "dr::DiffArray<dr::CUDAArray<double>>",
+        "spectrum": "MuellerMatrix<Color<Float, 1>>"
+    },
+
+    "cuda_ad_rgb": {
+        "float": "dr::DiffArray<dr::CUDAArray<float>>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "cuda_ad_rgb_double": {
+        "float": "dr::DiffArray<dr::CUDAArray<double>>",
+        "spectrum": "Color<Float, 3>"
+    },
+
+    "cuda_ad_rgb_polarized": {
+        "float": "dr::DiffArray<dr::CUDAArray<float>>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "cuda_ad_rgb_polarized_double": {
+        "float": "dr::DiffArray<dr::CUDAArray<double>>",
+        "spectrum": "MuellerMatrix<Color<Float, 3>>"
+    },
+
+    "cuda_ad_spectral": {
+        "float": "dr::DiffArray<dr::CUDAArray<float>>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "cuda_ad_spectral_double": {
+        "float": "dr::DiffArray<dr::CUDAArray<double>>",
+        "spectrum": "Spectrum<Float, 4>"
+    },
+
+    "cuda_ad_spectral_polarized": {
+        "float": "dr::DiffArray<dr::CUDAArray<float>>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    },
+
+    "cuda_ad_spectral_polarized_double": {
+        "float": "dr::DiffArray<dr::CUDAArray<double>>",
+        "spectrum": "MuellerMatrix<Spectrum<Float, 4>>"
+    }
+}

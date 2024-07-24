@@ -1,0 +1,11 @@
+<scene version="2.1.0">
+    <path value="../../common"/>
+
+    <bsdf type="roughplastic" id="object_bsdf">
+        <texture name="diffuse_reflectance" type="bitmap">
+            <string name="filename" value="textures/floor_tiles.jpg"/>
+        </texture>
+    </bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

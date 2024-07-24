@@ -1,0 +1,16 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<bsdf type="measured_polarized" id="object_bsdf">
+        <!--
+            Original data source: http://vclab.kaist.ac.kr/siggraph2020/pbrdfdataset/6_gold_mitsuba.zip
+            from the VCLAB pBRDF dataset (http://vclab.kaist.ac.kr/siggraph2020/pbrdfdataset/kaistdataset.html)
+            that was created as part of "Image-Based Acquisition and Modeling of Polarimetric Reflectance"
+            by Baek et al. (SIGGRAPH 2020).
+        -->
+        <string name="filename" value="pbsdfs/6_gold_inpainted.pbsdf"/>
+        <float name="alpha_sample" value="0.02"/>
+    </bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

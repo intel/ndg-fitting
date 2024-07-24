@@ -1,0 +1,17 @@
+<scene version='2.1.0'>
+    <path value="../../../common"/>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="normalmap">
+            <texture name="normalmap" type="bitmap">
+                <boolean name="raw" value="true"/>
+                <string name="filename" value="textures/floor_tiles_normalmap.jpg"/>
+            </texture>
+            <bsdf type="diffuse"/>
+        </bsdf>
+    </shape>
+
+    <include filename="fragments/single_sphere.xml"/>
+</scene>

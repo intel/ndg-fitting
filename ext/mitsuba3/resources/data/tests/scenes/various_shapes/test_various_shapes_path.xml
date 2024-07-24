@@ -1,0 +1,140 @@
+<scene version='2.0.0'>
+
+    <default name="spp" value="16"/>
+    <default name="integrator" value="path"/>
+
+    <integrator type="moment">
+        <integrator type="$integrator">
+            <integer name="max_depth" value="2"/>
+        </integrator>
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="near_clip" value="1"/>
+        <float name="far_clip" value="1000"/>
+
+        <transform name="to_world">
+            <lookat target="0.0, 0.0, 0.0"
+                    origin="-24.0, 0.0, 0.0"
+                    up    ="0.0, 0.0, 1.0"/>
+        </transform>
+
+        <film type="hdrfilm">
+            <rfilter type="box"/>
+            <integer name="width" value="480"/>
+            <integer name="height" value="480"/>
+			<string name="pixel_format" value="rgb"/>
+			<string name="component_format" value="float32"/>
+        </film>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+    </sensor>
+
+    <emitter type="constant"/>
+
+	<bsdf type="diffuse" id="object_bsdf">
+        <texture name="reflectance" type="checkerboard">
+            <transform name="to_uv">
+                <scale x="5" y="5" />
+            </transform>
+            <rgb name="color0" value="0.8"/>
+            <rgb name="color1" value="0.1"/>
+        </texture>
+    </bsdf>
+
+    <shape type="sphere">
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="1.5" y="1.5" z="1.5"/>
+            <rotate x="1.0" angle="-35"/>
+            <rotate y="1.0" angle="-25"/>
+            <translate x="0.0" y="-5.0" z="-2.0"/>
+        </transform>
+    </shape>
+
+    <shape type="cylinder">
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="1.5" y="1.5" z="2"/>
+            <rotate x="1.0" angle="-35"/>
+            <rotate y="1.0" angle="-25"/>
+            <translate x="0.0" y="-2.0" z="-2.0"/>
+        </transform>
+    </shape>
+
+    <shape type="disk">
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="1.5" y="2.5" z="1"/>
+            <rotate x="1.0" angle="-35"/>
+            <rotate y="1.0" angle="-25"/>
+            <translate x="0.0" y="2.5" z="-2.0"/>
+        </transform>
+    </shape>
+
+    <shape type="rectangle">
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="1.5" y="2.5" z="1"/>
+            <rotate x="1.0" angle="-35"/>
+            <rotate y="1.0" angle="-25"/>
+            <translate x="0.0" y="5.0" z="-2.0"/>
+        </transform>
+    </shape>
+
+    <shape type="serialized">
+        <string name="filename" value="../../serialized/rectangle_normals_uv.serialized"/>
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="-0.5" y="-0.5" z="-0.5"/>
+            <rotate x="1.0" angle="35"/>
+            <rotate y="1.0" angle="25"/>
+            <translate x="0.0" y="1.0" z="2.0"/>
+        </transform>
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="../../obj/rectangle_normals_uv.obj"/>
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="-0.5" y="-0.5" z="-0.5"/>
+            <rotate x="1.0" angle="35"/>
+            <rotate y="1.0" angle="25"/>
+            <translate x="0.0" y="4.0" z="2.0"/>
+        </transform>
+    </shape>
+
+    <shape type="ply">
+        <string name="filename" value="../../ply/rectangle_normals_uv.ply"/>
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="-0.5" y="-0.5" z="-0.5"/>
+            <rotate x="1.0" angle="35"/>
+            <rotate y="1.0" angle="25"/>
+            <translate x="0.0" y="-2.0" z="2.0"/>
+        </transform>
+    </shape>
+
+    <shape type="cube">
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="1.5" y="1.5" z="0.2"/>
+            <translate x="0.0" y="1" z="-5.0"/>
+            <rotate y="1.0" angle="25"/>
+            <rotate z="1.0" angle="35"/>
+        </transform>
+    </shape>
+
+    <shape type="cube">
+        <ref id="object_bsdf"/>
+        <transform name="to_world">
+            <scale x="1.0" y="1.0" z="1.0"/>
+            <translate x="0.0" y="3" z="-5.0"/>
+            <rotate y="1.0" angle="25"/>
+            <!-- <rotate z="1.0" angle="35"/> -->
+        </transform>
+    </shape>
+
+</scene>

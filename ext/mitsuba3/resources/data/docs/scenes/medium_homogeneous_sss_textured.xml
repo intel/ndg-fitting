@@ -1,0 +1,49 @@
+<scene version="2.1.0">
+    <path value="../../common"/>
+	<default name="integrator" value="volpath"/>
+	<default name="rr_depth" value="64"/>
+	<default name="max_depth" value="64"/>
+
+	<bsdf type="roughdielectric" id="object_bsdf">
+        <string name="distribution" value="beckmann"/>
+        <float name="alpha" value="0.05"/>
+        <string name="int_ior" value="bk7"/>
+        <string name="ext_ior" value="air"/>
+    </bsdf>
+
+    <medium id="medium1" type="homogeneous">
+        <float name="scale" value="2"/>
+
+        <phase type="hg">
+			<float name="g" value="0.7"/>
+		</phase>
+
+        <volume name="albedo" type="gridvolume">
+            <string name="wrap_mode" value="repeat"/>
+            <string name="filename" value="textures/albedo.vol"/>
+        </volume>
+
+        <boolean name="has_spectral_extinction" value="false"/>
+        <boolean name="sample_emitters" value="false"/>
+    </medium>
+
+    <shape type="ply">
+        <string name="filename" value="meshes/bunny.ply"/>
+		<transform name="to_world">
+			<scale value="13"/>
+			<rotate z="1" angle="130"/>
+			<rotate y="1" angle="70"/>
+			<rotate x="1" angle="-50"/>
+			<rotate z="1" angle="-50"/>
+			<rotate y="1" angle="-2"/>
+			<rotate x="1" angle="12"/>
+			<translate x="0.3" y="0.0" z="-0.5"/>
+		</transform>
+		<ref id="medium1" name="interior"/>
+
+        <ref id="object_bsdf"/>
+    </shape>
+
+    <include filename="include/shape_scene.xml"/>
+
+</scene>

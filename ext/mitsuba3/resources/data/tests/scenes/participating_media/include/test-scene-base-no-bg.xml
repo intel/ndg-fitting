@@ -1,0 +1,33 @@
+<scene version='2.0.0'>
+
+    <include filename="include/preamble.xml"/>
+
+    <integrator type="moment">
+        <integrator type="$integrator">
+            <integer name="max_depth" value="16"/>
+        </integrator>
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="near_clip" value="1"/>
+        <float name="far_clip" value="1000"/>
+
+        <transform name="to_world">
+            <lookat target="0.0, -0.5, 0.0"
+                    origin="0.0, 0.5, 4.0"
+                    up    ="0.0, 1.0, 0.0"/>
+        </transform>
+
+        <film type="hdrfilm">
+            <rfilter type="box"/>
+            <integer name="width" value="$res"/>
+            <integer name="height" value="$res"/>
+			<string name="pixel_format" value="rgb"/>
+			<string name="component_format" value="float32"/>
+        </film>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+    </sensor>
+</scene>

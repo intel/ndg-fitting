@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="3.0.0" >
+	<integrator type="path" >
+		<integer name="max_depth" value="8" />
+	</integrator>
+
+	<sensor type="perspective" >
+		<float name="fov" value="36.5" />
+		<float name="near_clip" value="0.1" />
+		<float name="far_clip" value="1000.0" />
+		<transform name="to_world" >
+			<lookat origin="-6, 0, 0" target="0, 0, 0" up="0, 0, 1"/>
+		</transform>
+		<sampler type="independent" >
+			<integer name="sample_count" value="256" />
+		</sampler>
+		<film type="hdrfilm" >
+			<integer name="width" value="300" />
+			<integer name="height" value="300" />
+			<string name="file_format" value="openexr" />
+			<string name="pixel_format" value="rgb" />
+			<boolean name="banner" value="false" />
+			<rfilter type="tent" />
+		</film>
+	</sensor>
+
+	<bsdf type="principled" id="Material" >
+		<rgb name="base_color" value="0.02, 0.02, 0.02"/>
+	</bsdf>
+
+
+	<emitter type="area" id="Background">
+        <texture name="radiance" type="checkerboard" >
+			<rgb name="color0" value="0.001"/>
+			<rgb name="color1" value="30"/>
+			<transform name="to_uv">
+                <!-- Scale texture by factor of 2 -->
+                <scale x="6" y="6"/>
+                <!-- Offset texture by [0.5, 1.0] -->
+                <translate x="0.5" y="0.5"/>
+            </transform>
+        </texture>
+    </emitter>
+
+
+
+	<shape type="Rectangle">
+		<ref id="Background" />
+		<transform name="to_world">
+            <rotate y="1" angle="270"/>
+            <scale value="6"/>
+            <translate x="6" y="0" z="0"/>
+        </transform>
+	</shape>
+
+	<shape type="Sphere">
+		<ref id="Material" />
+		<float name="radius" value="1.3" />
+	</shape>
+
+
+
+	<emitter type="envmap" >
+		<transform name="to_world" >
+
+			<rotate x="1" angle="90"/>
+			<rotate z="1" angle="40"/>
+		</transform>
+		<string name="filename" value="studio.exr" />
+	</emitter>
+
+</scene>

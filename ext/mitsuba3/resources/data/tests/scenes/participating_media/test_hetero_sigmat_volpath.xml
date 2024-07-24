@@ -1,0 +1,42 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <default name="integrator" value="volpath"/>
+
+    <emitter type="envmap">
+		<string name="filename" value="textures/museum.exr"/>
+	</emitter>
+
+    <include filename="include/test-scene-base.xml"/>
+
+    <medium id="medium1" type="heterogeneous">
+        <float name="scale" value="5"/>
+
+        <volume name="sigma_t" type="gridvolume">
+            <transform name="to_world">
+                <scale x="1.5" y="1.5" z="1.5"/>
+                <translate x="-0.5" y="-0.5" z="-0.5"/>
+            </transform>
+            <boolean name="use_grid_bbox" value="false"/>
+            <string name="filename" value="textures/sigmat.vol"/>
+        </volume>
+
+        <rgb name="albedo" value="0.99, 0.5, 0.5"/>
+        <phase type="isotropic" />
+    </medium>
+    <shape type="obj">
+        <string name="filename" value="meshes/unit_cube_centered.obj"/>
+        <bsdf type="null">
+        </bsdf>
+        <ref id="medium1" name="interior"/>
+        <transform name="to_world">
+            <scale x="1.5" y="1.5" z="1.5"/>
+        </transform>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere_base.obj"/>
+        <bsdf type="diffuse">
+        </bsdf>
+    </shape>
+
+</scene>

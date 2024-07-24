@@ -1,0 +1,79 @@
+# CMake
+CMakeFiles
+CMakeCache.txt
+/CPackConfig.cmake
+/CPackSourceConfig.cmake
+cmake_install.cmake
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+Makefile
+
+# Ninja
+.ninja_deps
+.ninja_log
+*.ninja
+
+# Miscellaneous;
+/build*
+/Testing
+/tests/Testing
+*.dir
+*~
+\.DS_Store
+*.dSYM
+__pycache__
+*.pyc
+
+# Visual Studio
+*.vcxproj
+*.vcxproj.user
+*.iobj
+*.ipdb
+drjit.sdf
+drjit.sln
+drjit.opensdf
+drjit.VC.VC.opendb
+drjit.VC.db
+Debug
+Release
+*.filters
+/.vs
+/x64
+
+# Visual Studio Code
+/.vscode
+
+# Build products
+*_none
+*_sse42
+*_avx
+*_avx2
+*_avx512
+*_neon
+*.ppm
+tests/custom
+tests/vcall
+tests/ad_megakernel
+tests/texture
+libdrjit-core.so
+libdrjit-core.dylib
+drjit-core.dll
+libnanothread.so
+libnanothread.dylib
+nanothread.dll
+libdrjit-autodiff.so
+libdrjit-autodiff.dylib
+drjit-autodiff.dll
+drjit_ext.cp*
+compile_commands.json
+\.clangd
+/drjitConfig.cmake
+/drjitConfigVersion.cmake
+/_skbuild
+/wheelhouse
+drjit/config.py
+
+# Documentation
+/html
+/docs/.build

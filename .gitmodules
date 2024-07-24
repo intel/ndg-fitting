@@ -1,0 +1,49 @@
+[submodule "ext/mitsuba3/ext/zlib"]
+    path = ext/mitsuba3/ext/zlib
+    url = https://github.com/mitsuba-renderer/zlib
+[submodule "ext/mitsuba3/ext/libpng"]
+    path = ext/mitsuba3/ext/libpng
+    url = https://github.com/mitsuba-renderer/libpng.git
+[submodule "ext/mitsuba3/ext/libjpeg"]
+    path = ext/mitsuba3/ext/libjpeg
+    url = https://github.com/mitsuba-renderer/libjpeg
+[submodule "ext/mitsuba3/ext/openexr"]
+    path = ext/mitsuba3/ext/openexr
+    url = https://github.com/mitsuba-renderer/openexr
+[submodule "ext/mitsuba3/ext/tinyformat"]
+    path = ext/mitsuba3/ext/tinyformat
+    url = https://github.com/mitsuba-renderer/tinyformat
+[submodule "ext/mitsuba3/ext/pugixml"]
+    path = ext/mitsuba3/ext/pugixml
+    url = https://github.com/mitsuba-renderer/pugixml
+[submodule "ext/mitsuba3/ext/asmjit"]
+    path = ext/mitsuba3/ext/asmjit
+    url = https://github.com/mitsuba-renderer/asmjit
+[submodule "ext/mitsuba3/ext/pybind11"]
+    path = ext/mitsuba3/ext/pybind11
+    url = https://github.com/pybind/pybind11
+[submodule "ext/mitsuba3/ext/nanogui"]
+    path = ext/mitsuba3/ext/nanogui
+    url = https://github.com/mitsuba-renderer/nanogui
+[submodule "ext/mitsuba3/resources/data"]
+    path = ext/mitsuba3/resources/data
+    url = https://github.com/mitsuba-renderer/mitsuba-data
+    shallow = true
+[submodule "ext/mitsuba3/ext/embree"]
+    path = ext/mitsuba3/ext/embree
+    url = https://github.com/mitsuba-renderer/embree
+[submodule "ext/mitsuba3/ext/ittnotify"]
+	path = ext/mitsuba3/ext/ittnotify
+	url = https://github.com/intel/IntelSEAPI
+[submodule "ext/mitsuba3/ext/fastfloat"]
+	path = ext/mitsuba3/ext/fastfloat
+	url = https://github.com/fastfloat/fast_float
+[submodule "ext/mitsuba3/ext/drjit"]
+	path = ext/mitsuba3/ext/drjit
+	url = https://github.com/mitsuba-renderer/drjit
+[submodule "ext/diff-gaussian-rasterization"]
+	path = ext/diff-gaussian-rasterization
+	url = https://github.com/graphdeco-inria/diff-gaussian-rasterization.git
+[submodule "ext/simple-knn"]
+	path = ext/simple-knn
+	url = https://gitlab.inria.fr/bkerbl/simple-knn.git

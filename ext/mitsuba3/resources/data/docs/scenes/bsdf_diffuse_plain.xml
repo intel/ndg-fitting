@@ -1,0 +1,8 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<bsdf type="diffuse" id="object_bsdf">
+		<rgb name="reflectance" value="0.2, 0.25, 0.7"/>
+	</bsdf>
+    <include filename="include/matpreview.xml"/>
+</scene>

@@ -1,0 +1,93 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <default name="spp" value="64"/>
+    <default name="integrator" value="path"/>
+
+    <integrator type="moment">
+        <integrator type="$integrator">
+            <integer name="max_depth" value="2"/>
+        </integrator>
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="near_clip" value="1"/>
+        <float name="far_clip" value="1000"/>
+
+        <transform name="to_world">
+            <lookat target="0.0, 0.0, 0.0"
+                    origin="-5.0, -6.0, 0.0"
+                    up    ="0.0, 0.0, 1.0"/>
+        </transform>
+
+        <film type="hdrfilm">
+            <rfilter type="box"/>
+            <integer name="width" value="64"/>
+            <integer name="height" value="64"/>
+			<string name="pixel_format" value="rgb"/>
+			<string name="component_format" value="float32"/>
+        </film>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+    </sensor>
+
+    <emitter type="point">
+        <point name="position" x="-5" y="-6.0" z="0.0"/>
+        <rgb name="intensity" value="300"/>
+    </emitter>
+
+    <shape type="shapegroup" id="my_shape_group">
+        <shape type="obj">
+            <string name="filename" value="meshes/sphere.obj"/>
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0.2 0.5 0.3"/>
+            </bsdf>
+        </shape>
+
+        <shape type="sphere">
+            <transform name="to_world">
+                <scale value="0.5"/>
+                <translate value="-1 0 0"/>
+            </transform>
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0.9 0.5 0.3"/>
+            </bsdf>
+        </shape>
+
+        <shape type="rectangle">
+            <transform name="to_world">
+                <scale value="1.2"/>
+                <rotate y="1" angle="-80"/>
+            </transform>
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0.9 0.5 0.9"/>
+            </bsdf>
+        </shape>
+    </shape>
+
+
+    <shape type="instance">
+        <ref id="my_shape_group"/>
+    </shape>
+
+    <shape type="instance">
+        <ref id="my_shape_group"/>
+        <transform name="to_world">
+            <rotate y="1" angle="45"/>
+            <scale value="1.5"/>
+            <translate z="2"/>
+        </transform>
+    </shape>
+
+    <shape type="instance">
+        <ref id="my_shape_group"/>
+        <transform name="to_world">
+            <rotate y="1" angle="-45"/>
+            <rotate x="1" angle="-25"/>
+            <scale value="1.5"/>
+            <translate z="-2"/>
+        </transform>
+    </shape>
+</scene>

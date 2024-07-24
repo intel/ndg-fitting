@@ -1,0 +1,142 @@
+<scene version="2.1.0">
+    <path value="../../../common"/>
+
+    <default name="spp" value="4"/>
+    <default name="integrator" value="direct"/>
+
+    <integrator type="moment">
+        <integrator type="$integrator"/>
+    </integrator>
+
+	<sensor type="perspective">
+		<transform name="to_world">
+			<lookat origin="0, 0, 8" target="0, 0, 0" up="0, 1, 0"/>
+		</transform>
+		<float name="fov" value="45"/>
+
+		<sampler type="independent">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<integer name="width" value="128"/>
+			<integer name="height" value="128"/>
+			<string name="pixel_format" value="rgb"/>
+		</film>
+	</sensor>
+
+    <emitter type="point">
+		<transform name="to_world">
+            <translate z="10"/>
+		</transform>
+        <rgb name="intensity" value="100"/>
+    </emitter>
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <translate y="-1.1"/>
+            <translate x="-2.2"/>
+		</transform>
+        <bsdf type="diffuse">
+            <texture type="bitmap" name="reflectance">
+                <transform name="to_uv">
+                    <scale value="2"/>
+                    <translate value="-.5,-.5, 0"/>
+                </transform>
+                <string name="filename" value="textures/carrot.png"/>
+                <string name="wrap_mode" value="repeat"/>
+                <string name="filter_type" value="bilinear"/>
+            </texture>
+        </bsdf>
+    </shape>
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <translate y="-1.1"/>
+            <translate x="0"/>
+		</transform>
+        <bsdf type="diffuse">
+            <texture type="bitmap" name="reflectance">
+                <transform name="to_uv">
+                    <scale value="2"/>
+                    <translate value="-.5,-.5, 0"/>
+                </transform>
+                <string name="filename" value="textures/carrot.png"/>
+                <string name="wrap_mode" value="mirror"/>
+                <string name="filter_type" value="bilinear"/>
+            </texture>
+        </bsdf>
+    </shape>
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <translate y="-1.1"/>
+            <translate x="+2.2"/>
+		</transform>
+        <bsdf type="diffuse">
+            <texture type="bitmap" name="reflectance">
+                <transform name="to_uv">
+                    <scale value="2"/>
+                    <translate value="-.5,-.5, 0"/>
+                </transform>
+                <string name="filename" value="textures/carrot.png"/>
+                <string name="wrap_mode" value="clamp"/>
+                <string name="filter_type" value="bilinear"/>
+            </texture>
+        </bsdf>
+    </shape>
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <translate y="+1.1"/>
+            <translate x="-2.2"/>
+		</transform>
+        <bsdf type="diffuse">
+            <texture type="bitmap" name="reflectance">
+                <transform name="to_uv">
+                    <scale value="2"/>
+                    <translate value="-.5,-.5, 0"/>
+                </transform>
+                <string name="filename" value="textures/carrot.png"/>
+                <string name="wrap_mode" value="repeat"/>
+                <string name="filter_type" value="nearest"/>
+            </texture>
+        </bsdf>
+    </shape>
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <translate y="+1.1"/>
+            <translate x="-0.0"/>
+		</transform>
+        <bsdf type="diffuse">
+            <texture type="bitmap" name="reflectance">
+                <transform name="to_uv">
+                    <scale value="2"/>
+                    <translate value="-.5,-.5, 0"/>
+                </transform>
+                <string name="filename" value="textures/carrot.png"/>
+                <string name="wrap_mode" value="mirror"/>
+                <string name="filter_type" value="nearest"/>
+            </texture>
+        </bsdf>
+    </shape>
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <translate y="+1.1"/>
+            <translate x="+2.2"/>
+		</transform>
+        <bsdf type="diffuse">
+            <texture type="bitmap" name="reflectance">
+                <transform name="to_uv">
+                    <scale value="2"/>
+                    <translate value="-.5,-.5, 0"/>
+                </transform>
+                <string name="filename" value="textures/carrot.png"/>
+                <string name="wrap_mode" value="clamp"/>
+                <string name="filter_type" value="nearest"/>
+            </texture>
+        </bsdf>
+    </shape>
+</scene>

@@ -1,0 +1,18 @@
+<scene version='2.1.0'>
+    <path value="../../../common"/>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="bumpmap" id="object_bsdf">
+            <float name="scale" value="0.02"/>
+            <texture name="floor_tiles_bumpmap" type="bitmap">
+                <boolean name="raw" value="true"/>
+                <string name="filename" value="textures/floor_tiles_bumpmap.png"/>
+            </texture>
+            <bsdf type="diffuse"/>
+        </bsdf>
+    </shape>
+
+    <include filename="fragments/single_sphere.xml"/>
+</scene>

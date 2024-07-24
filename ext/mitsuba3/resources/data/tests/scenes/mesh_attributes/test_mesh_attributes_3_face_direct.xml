@@ -1,0 +1,50 @@
+<scene version="3.0.0">
+    <path value="../../../common"/>
+
+    <default name="spp" value="32"/>
+    <default name="integrator" value="direct"/>
+
+    <emitter type="directional">
+        <vector name="direction" value="0,0,1"/>
+        <rgb name="irradiance" value="1.0"/>
+    </emitter>
+
+    <integrator type="moment">
+        <integrator type="$integrator"/>
+    </integrator>
+
+    <sensor type="perspective">
+        <transform name="to_world">
+            <lookat origin="0, 0,-5"
+                    target="0, 0, 0"
+                    up    ="0, 1, 0"/>
+        </transform>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+
+        <film type="hdrfilm">
+            <integer name="width" value="48"/>
+            <integer name="height" value="48"/>
+            <rfilter type="box"/>
+        </film>
+    </sensor>
+
+	<texture type="mesh_attribute" id="tex">
+		<string name="name" value="face_color"/>
+	</texture>
+
+	<bsdf type="diffuse" id="diffuse_bsdf">
+		<ref name="reflectance" id="tex"/>
+	</bsdf>
+
+    <shape type="ply">
+        <string name="filename" value="meshes/sphere_attribute.ply"/>
+        <transform name="to_world">
+            <translate value="0,0,1"/>
+        </transform>
+        <ref id="diffuse_bsdf"/>
+    </shape>
+
+</scene>

@@ -1,0 +1,8 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<bsdf type="plastic" id="object_bsdf">
+	</bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

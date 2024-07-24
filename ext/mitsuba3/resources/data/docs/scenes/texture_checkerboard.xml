@@ -1,0 +1,14 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+    <texture id="named_texture" type="checkerboard">
+        <transform name="to_uv">
+            <scale x="15" y="15"/>
+        </transform>
+    </texture>
+
+	<bsdf type="diffuse" id="object_bsdf">
+        <ref name="reflectance" id="named_texture"/>
+	</bsdf>
+    <include filename="include/matpreview.xml"/>
+</scene>

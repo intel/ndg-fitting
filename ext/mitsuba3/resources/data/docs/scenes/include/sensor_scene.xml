@@ -1,0 +1,65 @@
+<scene version="3.0.0">
+	<bsdf type="diffuse" id="object_bsdf">
+		<rgb name="reflectance" value="0.2, 0.25, 0.7"/>
+	</bsdf>
+
+	<default name="spp" value="64"/>
+	<integrator type="path" />
+
+	<shape type="serialized">
+		<string name="filename" value="meshes/matpreview.serialized"/>
+		<integer name="shape_index" value="2"/>
+		<transform name="to_world">
+			<matrix value="0.614046 0.614047 0 -1.78814e-07 -0.614047 0.614046 0 2.08616e-07 0 0 0.868393 1.02569 0 0 0 1"/>
+			<translate z="0.01"/>
+		</transform>
+		<ref id="object_bsdf"/>
+
+	</shape>
+
+	<emitter type="envmap" id="Area_002-light">
+		<string name="filename" value="textures/museum.exr"/>
+		<transform name="to_world">
+			<rotate y="1" angle="-180"/>
+			<matrix value="-0.224951 -0.000001 -0.974370 0.000000 -0.974370 0.000000 0.224951 0.000000 0.000000 1.000000 -0.000001 8.870000 0.000000 0.000000 0.000000 1.000000 "/>
+		</transform>
+		<float name="scale" value="3"/>
+	</emitter>
+
+	<bsdf type="diffuse" id="diffmat">
+		<rgb name="reflectance" value="0.18 0.18 0.18"/>
+	</bsdf>
+
+	<texture type="checkerboard" id="planetex">
+		<rgb name="color0" value="0.2"/>
+		<rgb name="color1" value="0.4"/>
+		<transform name="to_uv">
+			<matrix value="8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 1"/>
+		</transform>
+	</texture>
+
+	<bsdf type="diffuse" id="planemat">
+		<ref name="reflectance" id="planetex"/>
+	</bsdf>
+
+	<shape type="serialized" id="Interior-mesh_0">
+		<string name="filename" value="meshes/matpreview.serialized"/>
+		<integer name="shape_index" value="1"/>
+		<transform name="to_world">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0.0252155 0 0 0 1"/>
+		</transform>
+
+		<ref name="bsdf" id="diffmat"/>
+	</shape>
+
+	<shape type="serialized" id="Plane-mesh_0">
+		<string name="filename" value="meshes/matpreview.serialized"/>
+		<integer name="shape_index" value="0"/>
+		<transform name="to_world">
+			<rotate z="1" angle="-4.3"/>
+			<matrix value="3.38818 -4.06354 0 -1.74958 4.06354 3.38818 0 1.43683 0 0 5.29076 -0.0120714 0 0 0 1"/>
+		</transform>
+
+		<ref name="bsdf" id="planemat"/>
+	</shape>
+</scene>

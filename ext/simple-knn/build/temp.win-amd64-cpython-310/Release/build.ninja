@@ -1,0 +1,34 @@
+ninja_required_version = 1.3
+cxx = cl
+nvcc = C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin\nvcc
+
+cflags = /nologo /O2 /W3 /GL /DNDEBUG /MD /MD /wd4819 /wd4251 /wd4244 /wd4267 /wd4275 /wd4018 /wd4190 /EHsc -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include\torch\csrc\api\include -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include\TH -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\include" -IC:\Users\stavros\miniconda3\include -IC:\Users\stavros\miniconda3\Include "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\ATLMFC\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt"
+post_cflags = /wd4624 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0 /std:c++17
+cuda_cflags = --use-local-env -Xcompiler /MD -Xcompiler /wd4819 -Xcompiler /wd4251 -Xcompiler /wd4244 -Xcompiler /wd4267 -Xcompiler /wd4275 -Xcompiler /wd4018 -Xcompiler /wd4190 -Xcompiler /EHsc -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include\torch\csrc\api\include -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include\TH -IC:\Users\stavros\miniconda3\lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\include" -IC:\Users\stavros\miniconda3\include -IC:\Users\stavros\miniconda3\Include "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\ATLMFC\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt"
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_86,code=compute_86 -gencode=arch=compute_86,code=sm_86
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = cl /showIncludes $cflags -c $in /Fo$out $post_cflags
+  deps = msvc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+build D$:\ndg-release\ext\simple-knn\build\temp.win-amd64-cpython-310\Release\ext.obj: compile D$:\ndg-release\ext\simple-knn\ext.cpp
+build D$:\ndg-release\ext\simple-knn\build\temp.win-amd64-cpython-310\Release\simple_knn.obj: cuda_compile D$:\ndg-release\ext\simple-knn\simple_knn.cu
+build D$:\ndg-release\ext\simple-knn\build\temp.win-amd64-cpython-310\Release\spatial.obj: cuda_compile D$:\ndg-release\ext\simple-knn\spatial.cu
+
+
+
+
+
+
+

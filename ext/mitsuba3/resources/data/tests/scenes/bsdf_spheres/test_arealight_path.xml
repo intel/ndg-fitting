@@ -1,0 +1,20 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/rectangle.obj"/>
+        <transform name="to_world">
+            <rotate y="1" angle="120"/>
+            <scale x="2" y="2" z="2"/>
+            <translate x="-4" y="0.0" z="6"/>
+        </transform>
+        <bsdf type="diffuse" id="light">
+            <spectrum name="reflectance" value="400:0.78, 500:0.78, 600:0.78, 700:0.78"/>
+        </bsdf>
+        <emitter type="area">
+            <spectrum name="radiance" value="400:0, 500:8, 600:15.6, 700:18.4"/>
+        </emitter>
+    </shape>
+
+    <include filename="fragments/sphere_grid.xml"/>
+</scene>

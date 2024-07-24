@@ -1,0 +1,12 @@
+datasets/
+.idea/
+__pycache__/
+venv/
+models/
+predictions/
+runs/
+paths/
+renders*/
+imgui.ini
+.polyscope.ini
+.vs/

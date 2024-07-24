@@ -1,0 +1,25 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<sensor type="perspective" id="Camera-camera">
+		<string name="fov_axis" value="smaller"/>
+		<float name="focus_distance" value="6.0"/>
+		<float name="fov" value="28.8415"/>
+		<transform name="to_world">
+			<lookat target="3.04072, -2.85176, 2.80939" origin="3.69558, -3.46243, 3.25463" up="-0.317366, 0.312466, 0.895346"/>
+		</transform>
+
+		<sampler type="independent">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+
+		<film type="hdrfilm" id="film">
+			<integer name="width" value="960"/>
+			<integer name="height" value="720"/>
+			<string name="pixel_format" value="rgb"/>
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+
+    <include filename="include/sensor_scene.xml"/>
+</scene>

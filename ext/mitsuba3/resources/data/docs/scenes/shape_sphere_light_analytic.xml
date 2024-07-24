@@ -1,0 +1,55 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+    <default name="spp" value="64"/>
+    <integrator type="path"/>
+
+    <sensor type="perspective" id="Camera-camera">
+        <string name="fov_axis" value="smaller"/>
+        <float name="focus_distance" value="6.0"/>
+        <float name="fov" value="26"/>
+        <transform name="to_world">
+            <lookat target="0, 0, 0"
+                    origin="0, 8, 12"
+                    up="0, 1, 0"/>
+        </transform>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+
+        <film type="hdrfilm" id="film">
+            <integer name="width" value="960"/>
+            <integer name="height" value="720"/>
+            <string name="pixel_format" value="rgb"/>
+            <rfilter type="gaussian"/>
+        </film>
+    </sensor>
+
+    <emitter type="constant">
+        <rgb name="radiance" value="0.1"/>
+    </emitter>
+
+    <shape type="rectangle">
+        <bsdf type="roughplastic">
+            <rgb name="diffuse_reflectance" value="0.05, 0.05, 0.1"/>
+            <float name="alpha" value="0.1"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <scale x="10" y="10" z="10"/>
+            <rotate x="1" angle="-90"/>
+        </transform>
+    </shape>
+
+
+    <shape type="sphere">
+        <emitter type="area">
+            <rgb name="radiance" value="20.0"/>
+        </emitter>
+
+        <transform name="to_world">
+            <translate y="1"/>
+        </transform>
+    </shape>
+</scene>

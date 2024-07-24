@@ -1,0 +1,40 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+        <bsdf type="principled" id="Material">
+            <rgb name="base_color" value="0.2,0.8,0.1 "/>
+            <float name="roughness" value="0.15" />
+            <texture name="anisotropic" type="checkerboard">
+                <transform name="to_uv">
+                    <scale x="25" y="25"/>
+                </transform>
+                <float name="color0" value="0.05"/>
+                <float name="color1" value="0.8"/>
+            </texture>
+            <texture name="metallic" type="checkerboard">
+                <transform name="to_uv">
+                    <scale x="25" y="25"/>
+                </transform>
+                <float name="color0" value="0.7"/>
+                <float name="color1" value="0.1"/>
+            </texture>
+            <texture name="clearcoat" type="checkerboard">
+                <transform name="to_uv">
+                    <scale x="12.5" y="12.5"/>
+                </transform>
+                <float name="color0" value="0.9"/>
+                <float name="color1" value="0.1"/>
+            </texture>
+            <texture name="sheen" type="checkerboard">
+                <transform name="to_uv">
+                    <scale x="12.5" y="12.5"/>
+                </transform>
+                <float name="color0" value="0.2"/>
+                <float name="color1" value="0.9"/>
+            </texture>
+            <float name="specular" value="0.7" />
+        </bsdf>
+    </shape>
+    <include filename="fragments/single_sphere.xml"/>
+</scene>

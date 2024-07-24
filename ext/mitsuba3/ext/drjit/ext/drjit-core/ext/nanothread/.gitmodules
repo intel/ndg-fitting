@@ -1,0 +1,3 @@
+[submodule "ext/cmake-defaults"]
+    path = ext/cmake-defaults
+    url = https://github.com/mitsuba-renderer/cmake-defaults

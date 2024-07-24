@@ -1,0 +1,8 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+    <bsdf type="conductor" id="object_bsdf">
+        <string name="material" value="Al"/>
+	</bsdf>
+    <include filename="include/matpreview.xml"/>
+</scene>

@@ -1,0 +1,43 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <default name="integrator" value="volpath"/>
+
+    <include filename="include/test-scene-base.xml"/>
+
+    <medium id="medium1" type="homogeneous">
+        <float name="scale" value="2.5"/>
+        <rgb name="sigma_t" value="1, 1, 1"/>
+        <rgb name="albedo" value="0.99, 0.999, 0.99"/>
+        <phase type="isotropic" />
+    </medium>
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere_tiny.obj"/>
+        <bsdf type="null">
+        </bsdf>
+        <ref id="medium1" name="interior"/>
+    </shape>
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere_base.obj"/>
+        <bsdf type="thindielectric">
+            <string name="int_ior" value="water" />
+            <string name="ext_ior" value="air" />
+        </bsdf>
+        <ref id="medium1" name="interior"/>
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/angled_cube.obj"/>
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.0, 0.0, 0.0"/>
+        </bsdf>
+        <emitter type="area">
+            <rgb name="radiance" value="18.387, 10.9873, 8.75357"/>
+        </emitter>
+
+        <transform name="to_world">
+            <translate x="0.8" y="0.0" z="0.0"/>
+        </transform>
+    </shape>
+
+</scene>

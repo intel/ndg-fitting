@@ -1,0 +1,33 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+    <shape type="rectangle">
+        <transform name="to_world">
+            <scale x="0.8" y="0.8" z="0.8"/>
+            <rotate x="1" angle="45"/>
+            <rotate y="1" angle="90"/>
+            <translate x="0.0" y="0" z="1"/>
+            <translate x="+0.3" y="-0.3"/>
+        </transform>
+
+        <bsdf type="polarizer">
+        </bsdf>
+    </shape>
+
+    <shape type="rectangle">
+        <transform name="to_world">
+            <scale x="0.8" y="0.8" z="0.8"/>
+            <rotate x="1" angle="45"/>
+            <rotate y="1" angle="90"/>
+            <translate x="0.0" y="0" z="1"/>
+            <translate x="-0.3" y="+0.3"/>
+        </transform>
+
+        <bsdf type="polarizer">
+            <spectrum name="theta" value="90"/>
+        </bsdf>
+    </shape>
+
+
+    <include filename="include/shape_scene.xml"/>
+</scene>

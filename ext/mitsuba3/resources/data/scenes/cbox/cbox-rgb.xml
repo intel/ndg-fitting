@@ -1,0 +1,9 @@
+<scene version="3.0.0">
+    <include filename="fragments/base.xml"/>
+    <include filename="fragments/bsdfs-rgb.xml"/>
+    <include filename="fragments/shapes.xml"/>
+
+    <emitter type="area" id="area-emitter">
+        <rgb name="radiance" value="18.387, 10.9873, 2.75357"/>
+    </emitter>
+</scene>

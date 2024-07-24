@@ -1,0 +1,43 @@
+<!--
+Please look at the existing list of Issues https://github.com/mitsuba-renderer/mitsuba3/issues
+If a related issue already exists, please comment there instead.
+
+For Feature Request and Other Questions, please open a new discussion on the
+Discussions page: https://github.com/mitsuba-renderer/mitsuba3/discussions
+-->
+
+## Summary
+
+<!-- A brief description of your issue -->
+
+## System configuration
+
+<!-- Information regarding your system configuration -->
+<!-- Run `python -m mitsuba.sys_info` and copy-paste the output here -->
+<!-- If you can't compile Mitsuba or Dr.Jit successfully, please enter the following information: -->
+
+System information:
+
+  OS: ...
+  CPU: ...
+  GPU: ...
+  Python version: ...
+  LLVM version: ...
+  CUDA version: ...
+  NVidia driver: ...
+
+  Dr.Jit version: ...
+  Mitsuba version: ...
+     Compiled with: ...
+     Variants compiled: ...
+
+## Description
+
+<!-- A full description of your issue -->
+
+## Steps to reproduce
+
+<!-- Enumerate the steps to follow in order to reproduce the issue -->
+
+1. ...
+2. ...

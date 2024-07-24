@@ -1,0 +1,226 @@
+<scene version='2.0.0'>
+    <default name="spp" value="128"/>
+    <default name="integrator" value="path"/>
+
+    <integrator type="moment">
+        <integrator type="$integrator">
+            <integer name="max_depth" value="2"/>
+        </integrator>
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="near_clip" value="1"/>
+        <float name="far_clip" value="1000"/>
+
+        <transform name="to_world">
+            <lookat target="0.0, 0.0, 0.0"
+                    origin="-24.0, 0.0, 0.0"
+                    up    ="0.0, 0.0, 1.0"/>
+        </transform>
+
+        <film type="hdrfilm">
+            <rfilter type="box"/>
+            <integer name="width" value="48"/>
+            <integer name="height" value="48"/>
+			<string name="pixel_format" value="rgb"/>
+			<string name="component_format" value="float32"/>
+        </film>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+    </sensor>
+
+    <!-- diffuse -->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.2 0.5 0.3"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="-6.0" z="0.0"/>
+        </transform>
+    </shape>
+
+    <!-- diffuse textured -->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="diffuse">
+            <texture name="reflectance" type="bitmap">
+                <string name="filename" value="textures/wood.jpg"/>
+            </texture>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="-3.0" z="0.0"/>
+        </transform>
+    </shape>
+
+    <!-- diamond -->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="dielectric">
+                <string name="int_ior" value="diamond"/>
+                <string name="ext_ior" value="air"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="0.0" z="0.0"/>
+        </transform>
+    </shape>
+
+    <!-- plastic shiny -->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="plastic">
+            <rgb name="diffuse_reflectance" value="0.1, 0.27, 0.36"/>
+            <float name="int_ior" value="1.9"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="3.0" z="0.0"/>
+        </transform>
+    </shape>
+
+    <!-- roughdielectric - beckman-->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="roughdielectric">
+            <string name="distribution" value="beckmann"/>
+            <float name="alpha" value="0.02"/>
+            <string name="int_ior" value="bk7"/>
+            <string name="ext_ior" value="air"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="6.0" z="0.0"/>
+        </transform>
+    </shape>
+
+    <!-- roughdielectric - ggx-->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="roughdielectric">
+            <string name="distribution" value="ggx"/>
+            <float name="alpha" value="0.1"/>
+            <string name="int_ior" value="bk7"/>
+            <string name="ext_ior" value="air"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="6.0" z="3.0"/>
+        </transform>
+    </shape>
+
+    <!-- roughplastic - beckmann-->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="roughplastic">
+            <string name="distribution" value="beckmann"/>
+            <float name="alpha" value="0.1"/>
+            <rgb name="diffuse_reflectance" value="0"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="3.0" z="3.0"/>
+        </transform>
+    </shape>
+
+    <!-- roughplastic - brighter-->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="roughplastic">
+            <string name="distribution" value="beckmann"/>
+            <float name="alpha" value="0.05"/>
+            <rgb name="diffuse_reflectance" value="0.5"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="0.0" z="3.0"/>
+        </transform>
+    </shape>
+
+    <!-- conductor -->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="conductor">
+            <spectrum name="eta" value="0.789000"/>
+            <spectrum name="k" value="6.150000"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="-3.0" z="3.0"/>
+        </transform>
+    </shape>
+
+    <!-- roughconductor -->
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="roughconductor">
+            <string name="distribution" value="beckmann"/>
+            <float name="alpha" value="0.05"/>
+            <spectrum name="eta" value="0.789000"/>
+            <spectrum name="k" value="6.150000"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="-6.0" z="3.0"/>
+        </transform>
+    </shape>
+
+    <!-- twosided -->
+    <shape type="obj">
+        <string name="filename" value="meshes/rectangle.obj"/>
+
+        <bsdf type="mask">
+            <texture name="opacity" type="bitmap">
+                <string name="filename" value="textures/leaf_mask.png"/>
+            </texture>
+
+            <bsdf type="twosided">
+                <bsdf type="diffuse">
+                    <rgb name="reflectance" value="0.1 0.8 0.1"/>
+                </bsdf>
+            </bsdf>
+        </bsdf>
+
+        <transform name="to_world">
+			<rotate z="1" angle="-90"/>
+			<rotate y="1" angle="90"/>
+            <translate x="0.0" y="-6.0" z="-3.0"/>
+        </transform>
+    </shape>
+
+    <!-- masked -->
+    <shape type="obj">
+        <string name="filename" value="meshes/rectangle.obj"/>
+
+        <bsdf type="mask">
+            <texture name="opacity" type="bitmap">
+                <string name="filename" value="textures/leaf_mask.png"/>
+            </texture>
+
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0.1 0.8 0.1"/>
+            </bsdf>
+        </bsdf>
+
+        <transform name="to_world">
+			<rotate z="1" angle="-90"/>
+			<rotate y="1" angle="-90"/>
+			<rotate x="1" angle="180"/>
+            <translate x="0.0" y="-3.0" z="-3.0"/>
+        </transform>
+    </shape>
+</scene>

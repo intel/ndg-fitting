@@ -1,0 +1,3 @@
+guzzle_sphinx_theme
+sphinxcontrib-katex
+sphinx-tabs

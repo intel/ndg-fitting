@@ -1,0 +1,7 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <emitter type="constant"/>
+
+    <include filename="fragments/sphere_grid.xml"/>
+</scene>

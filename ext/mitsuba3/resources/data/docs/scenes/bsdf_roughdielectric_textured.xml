@@ -1,0 +1,18 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<bsdf type="roughdielectric" id="object_bsdf">
+        <string name="distribution" value="beckmann"/>
+        <texture name="alpha" type="checkerboard">
+            <transform name="to_uv">
+                <scale x="5" y="5"/>
+            </transform>
+            <float name="color0" value="0.0"/>
+            <float name="color1" value="0.4"/>
+        </texture>
+        <string name="int_ior" value="bk7"/>
+        <string name="ext_ior" value="air"/>
+    </bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

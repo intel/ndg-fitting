@@ -1,0 +1,53 @@
+<scene version='2.0.0'>
+    <path value="../common"/>
+
+    <integrator type='direct'>
+        <integer name="emitter_samples" value="4"/>
+        <integer name="bsdf_samples" value="0"/>
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="near_clip" value="1"/>
+        <float name="far_clip" value="1000"/>
+
+        <transform name="to_world">
+            <lookat target="0.5, 0.0, 1.5"
+                    origin="0.0, -12.0, 1.5"
+                    up    ="0.0, 0.0, 1.0"/>
+        </transform>
+
+        <film type="hdrfilm">
+            <rfilter type="box"/>
+            <integer name="width" value="1024"/>
+            <integer name="height" value="768"/>
+        </film>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="4"/>
+        </sampler>
+    </sensor>
+
+    <shape type="ply">
+        <string name="filename"
+                value="meshes/teapot.ply"/>
+
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.9 0.9 0.0"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <rotate x="0.0" y="1.0" z="1.0" angle="15"/>
+            <rotate x="0.0" y="0.0" z="1.0" angle="-15"/>
+        </transform>
+    </shape>
+
+    <emitter type="point">
+        <point name="position" x="2" y="-6.0" z="4.5"/>
+        <rgb name="intensity" value="10.0"/>
+    </emitter>
+
+    <emitter type="point">
+        <point name="position" x="-3" y="-3.0" z="-0.5"/>
+        <rgb name="intensity" value="1.0"/>
+    </emitter>
+</scene>

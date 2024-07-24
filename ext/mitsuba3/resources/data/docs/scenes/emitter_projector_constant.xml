@@ -1,0 +1,24 @@
+<scene version="2.1.0">
+    <path value="../../common"/>
+
+    <emitter type="projector">
+        <float name="fov" value="32"/>
+
+        <transform name="to_world">
+            <lookat origin="4.0, 0.0, 5.5" target="0.0, 0.0, 1.0" up="-1, 0, 0" />
+        </transform>
+
+        <rgb name="irradiance" value="25.5 38.0 20.1"/>
+    </emitter>
+
+	<emitter type="envmap" id="Area_002-light">
+		<string name="filename" value="textures/museum.exr"/>
+		<transform name="to_world">
+			<rotate y="1" angle="-180"/>
+			<matrix value="-0.224951 -0.000001 -0.974370 0.000000 -0.974370 0.000000 0.224951 0.000000 0.000000 1.000000 -0.000001 8.870000 0.000000 0.000000 0.000000 1.000000 "/>
+		</transform>
+		<float name="scale" value="1.0"/>
+	</emitter>
+
+    <include filename="include/emitter_scene.xml"/>
+</scene>

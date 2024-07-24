@@ -1,0 +1,13 @@
+sphinx>=2.4
+IPython
+pygments-mathematica
+pybtex
+nbsphinx==0.8.9
+furo
+sphinxcontrib-bibtex
+sphinxcontrib-youtube
+sphinx-design
+sphinx-gallery==0.10.1
+sphinx-copybutton
+sphinx-hoverxref
+sphinx_tabs

@@ -1,0 +1,1 @@
+python ./runtool/sea_runtool.py -o /tmp/Test -f gt qt gv dgml --stacks ! ./bin/TestIntelSEAPI32

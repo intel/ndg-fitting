@@ -1,0 +1,17 @@
+<scene version="2.1.0">
+    <path value="../../common"/>
+
+    <bsdf type="normalmap" id="object_bsdf">
+        <texture name="normalmap" type="bitmap">
+            <boolean name="raw" value="true"/>
+            <string name="filename" value="textures/floor_tiles_normalmap.jpg"/>
+        </texture>
+        <bsdf type="roughplastic">
+            <texture name="diffuse_reflectance" type="bitmap">
+                <string name="filename" value="textures/floor_tiles.jpg"/>
+            </texture>
+        </bsdf>
+	</bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

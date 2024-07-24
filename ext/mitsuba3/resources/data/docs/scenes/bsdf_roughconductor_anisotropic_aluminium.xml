@@ -1,0 +1,12 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+    <bsdf type="roughconductor" id="object_bsdf">
+        <string name="distribution" value="beckmann"/>
+        <float name="alpha_u" value="0.05"/>
+        <float name="alpha_v" value="0.3"/>
+        <string name="material" value="Al"/>
+	</bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

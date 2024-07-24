@@ -1,0 +1,12 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+    <bsdf type="pplastic" id="object_bsdf">
+        <rgb name="diffuse_reflectance" value="0.05, 0.03, 0.1"/>
+        <float name="alpha" value="0.06"/>
+
+        <rgb name="specular_reflectance" value="0"/>
+    </bsdf>
+
+    <include filename="include/matpreview.xml"/>
+</scene>

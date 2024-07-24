@@ -1,0 +1,28 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="roughconductor">
+            <string name="distribution" value="beckmann"/>
+            <texture name="alpha_u" type="checkerboard">
+                <transform name="to_uv">
+                    <scale x="25" y="25"/>
+                </transform>
+                <float name="color0" value="0.05"/>
+                <float name="color1" value="0.3"/>
+            </texture>
+            <texture name="alpha_v" type="checkerboard">
+                <transform name="to_uv">
+                    <scale x="25" y="25"/>
+                </transform>
+                <float name="color0" value="0.3"/>
+                <float name="color1" value="0.05"/>
+            </texture>
+            <string name="material" value="a-C"/>
+        </bsdf>
+    </shape>
+
+    <include filename="fragments/single_sphere.xml"/>
+</scene>

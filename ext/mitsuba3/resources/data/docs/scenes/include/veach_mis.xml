@@ -1,0 +1,144 @@
+<!-- MI test scene from Eric Veach's thesis - modeled
+     after a file by Steve Marschner (CS667)
+-->
+<scene version="3.0.0">
+	<default name="spp" value="64"/>
+
+	<shape type="sphere">
+		<point name="center" x="10" y="10" z="4"/>
+		<float name="radius" value=".5"/>
+
+		<emitter type="area">
+			<rgb name="radiance" value="800, 800, 800"/>
+		</emitter>
+
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0,0,0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="sphere">
+		<point name="center" x="-1.25" y="0" z="0"/>
+		<float name="radius" value=".1"/>
+
+		<emitter type="area">
+			<rgb name="radiance" value="100, 100, 100"/>
+		</emitter>
+
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0,0,0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="sphere">
+		<point name="center" x="-3.75" y="0" z="0"/>
+		<float name="radius" value=".03333"/>
+
+		<emitter type="area">
+			<rgb name="radiance" value="901.803 901.803 901.803"/>
+		</emitter>
+
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0,0,0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="sphere">
+		<point name="center" x="1.25" y="0" z="0"/>
+		<float name="radius" value=".3"/>
+
+		<emitter type="area">
+			<rgb name="radiance" value="11.1111 11.1111 11.1111"/>
+		</emitter>
+
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0,0,0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="sphere">
+		<point name="center" x="3.75" y="0" z="0"/>
+		<float name="radius" value=".9"/>
+
+		<emitter type="area">
+			<rgb name="radiance" value="1.23457 1.23457 1.23457"/>
+		</emitter>
+
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0,0,0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="meshes/veach/plate1.obj"/>
+
+		<bsdf type="roughplastic">
+			<rgb name="diffuse_reflectance" value="0.07 0.09 0.13"/>
+			<rgb name="specular_reflectance" value="1"/>
+			<float name="int_ior" value="2"/>
+			<float name="alpha" value="0.005"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="meshes/veach/plate2.obj"/>
+
+		<bsdf type="roughplastic">
+			<rgb name="diffuse_reflectance" value="0.07 0.09 0.13"/>
+			<rgb name="specular_reflectance" value="1"/>
+			<float name="int_ior" value="2"/>
+			<float name="alpha" value="0.02"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="meshes/veach/plate3.obj"/>
+
+		<bsdf type="roughplastic">
+			<rgb name="diffuse_reflectance" value="0.07 0.09 0.13"/>
+			<rgb name="specular_reflectance" value="1"/>
+			<float name="int_ior" value="2"/>
+			<float name="alpha" value="0.05"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="meshes/veach/plate4.obj"/>
+
+		<bsdf type="roughplastic">
+			<rgb name="diffuse_reflectance" value="0.07 0.09 0.13"/>
+			<rgb name="specular_reflectance" value="1"/>
+			<float name="int_ior" value="2"/>
+			<float name="alpha" value="0.1"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="meshes/veach/floor.obj"/>
+
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.4 0.4 0.4"/>
+		</bsdf>
+	</shape>
+
+	<sensor type="perspective">
+		<string name="fov_axis" value="smaller"/>
+		<transform name="to_world">
+			<scale x="-1"/>
+			<scale x="-1"/>
+			<lookat origin="0, 2, 15" target="0, -2, 2.5" up="0, 1, 0"/>
+		</transform>
+		<float name="fov" value="28"/>
+
+		<sampler type="independent">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<integer name="width" value="768"/>
+			<integer name="height" value="512"/>
+
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+</scene>

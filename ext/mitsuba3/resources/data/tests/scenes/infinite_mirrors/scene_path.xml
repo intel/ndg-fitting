@@ -1,0 +1,80 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <default name="spp" value="64"/>
+    <default name="integrator" value="path"/>
+
+    <integrator type='moment'>
+        <integrator type='$integrator'>
+            <integer name="max_depth" value="8"/>
+        </integrator>
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="near_clip" value="1"/>
+        <float name="far_clip" value="1000"/>
+
+        <transform name="to_world">
+            <lookat target="0.0, 0.0, 0.0"
+                    origin="-5.0, 0.0, 0.0"
+                    up    ="0.0, 0.0, 1.0"/>
+        </transform>
+
+        <film type="hdrfilm">
+            <rfilter type="box"/>
+            <integer name="width" value="32"/>
+            <integer name="height" value="32"/>
+			<string name="pixel_format" value="rgb"/>
+			<string name="component_format" value="float32"/>
+        </film>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+    </sensor>
+
+    <emitter type="envmap">
+		<string name="filename" value="textures/museum.exr"/>
+	</emitter>
+
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="conductor">
+            <spectrum name="eta" value="0.789000"/>
+            <spectrum name="k" value="6.150000"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="-1.05" z="-0.9"/>
+        </transform>
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="conductor">
+            <spectrum name="eta" value="0.789000"/>
+            <spectrum name="k" value="6.150000"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="1.05" z="-0.9"/>
+        </transform>
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="conductor">
+            <spectrum name="eta" value="0.789000"/>
+            <spectrum name="k" value="6.150000"/>
+        </bsdf>
+
+        <transform name="to_world">
+            <translate x="0.0" y="0.0" z="0.9"/>
+        </transform>
+    </shape>
+
+</scene>

@@ -1,0 +1,11 @@
+<scene version="3.0.0">
+    <path value="../../common"/>
+
+	<integrator type="aov">
+        <!-- <string name="aovs" value="dd.y:depth"/> -->
+        <string name="aovs" value="nn:sh_normal, position:position, depth.y:depth"/>
+        <integrator type="path" name="image"/>
+    </integrator>
+
+    <include filename="include/integrator_scene.xml"/>
+</scene>

@@ -1,0 +1,64 @@
+<scene version="2.1.0">
+    <path value="../../common"/>
+
+    <default name="spp" value="14"/>
+
+    <integrator type="path"/>
+
+    <sensor type="perspective" id="camera">
+        <string name="fov_axis" value="smaller" />
+        <float name="focus_distance" value="6.0" />
+        <float name="fov" value="40" />
+        <transform name="to_world">
+            <lookat target="3.04072, -2.85176, 2.80939"
+                    origin="3.69558, -3.46243, 3.25463"
+                    up="-0.317366, 0.312466, 0.895346" />
+        </transform>
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+        <film type="hdrfilm" id="film">
+            <integer name="width" value="683" />
+            <integer name="height" value="512" />
+            <string name="pixel_format" value="rgb" />
+            <rfilter type="box" />
+        </film>
+    </sensor>
+
+    <bsdf type="diffuse" id="bsdf-diffuse">
+        <rgb name="reflectance" value="0.18 0.18 0.18" />
+    </bsdf>
+
+    <texture type="checkerboard" id="texture-checkerboard">
+        <rgb name="color0" value="0.4" />
+        <rgb name="color1" value="0.2" />
+        <transform name="to_uv">
+            <scale x="8.000000" y="8.000000" />
+        </transform>
+    </texture>
+
+    <bsdf type="diffuse" id="bsdf-plane">
+        <ref name="reflectance" id="texture-checkerboard" />
+    </bsdf>
+
+    <bsdf type="plastic" id="bsdf-matpreview">
+        <rgb name="diffuse_reflectance" value="0.940, 0.271, 0.361" />
+        <float name="int_ior" value="1.9" />
+    </bsdf>
+
+    <shape type="serialized" id="shape-plane">
+        <string name="filename" value="meshes/matpreview.serialized" />
+        <integer name="shape_index" value="0" />
+        <transform name="to_world">
+            <rotate z="1" angle="-4.3" />
+            <matrix value="3.38818 -4.06354 0 -1.74958 4.06354 3.38818 0 1.43683 0 0 5.29076 -0.0120714 0 0 0 1" />
+        </transform>
+        <ref name="bsdf" id="bsdf-plane" />
+    </shape>
+
+    <shape type="sphere">
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 1" />
+        </transform>
+    </shape>
+</scene>

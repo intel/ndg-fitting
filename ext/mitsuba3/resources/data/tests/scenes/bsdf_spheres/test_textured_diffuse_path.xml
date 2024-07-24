@@ -1,0 +1,15 @@
+<scene version='2.0.0'>
+    <path value="../../../common"/>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/sphere.obj"/>
+
+        <bsdf type="diffuse">
+            <texture name="reflectance" type="bitmap">
+                <string name="filename" value="textures/wood.jpg"/>
+            </texture>
+        </bsdf>
+    </shape>
+
+    <include filename="fragments/single_sphere.xml"/>
+</scene>

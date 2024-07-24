@@ -1,0 +1,14 @@
+ConfigArgParse==1.5.3
+glfw==2.5.7
+imgui==1.4.1
+matplotlib==3.7.1
+numpy==1.24.2
+opencv_python==4.7.0.72
+plyfile==1.0.3
+PyOpenGL==3.1.6
+PyOpenGL==3.1.7
+scipy==1.14.0
+taichi==1.6.0
+torch==2.0.1+cu118
+torch_ema==0.3
+tqdm==4.64.1

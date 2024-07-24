@@ -1,0 +1,91 @@
+<scene version="2.1.0">
+	<integrator type="path" />
+
+	<sensor type="perspective" id="Camera-camera">
+		<string name="fov_axis" value="smaller"/>
+		<float name="focus_distance" value="6.0"/>
+		<float name="fov" value="28.8415"/>
+		<transform name="to_world">
+			<lookat target="3.04072, -2.85176, 2.80939" origin="3.69558, -3.46243, 3.25463" up="-0.317366, 0.312466, 0.895346"/>
+		</transform>
+
+        <ref id="my_sampler"/>
+
+		<film type="hdrfilm" id="film">
+			<integer name="width" value="960"/>
+			<integer name="height" value="720"/>
+			<string name="pixel_format" value="rgb"/>
+			<rfilter type="box"/>
+		</film>
+	</sensor>
+<!--
+	<emitter type="envmap" id="Area_002-light">
+		<string name="filename" value="textures/envmap.exr"/>
+		<transform name="to_world">
+			<rotate y="1" angle="-180"/>
+			<matrix value="-0.224951 -0.000001 -0.974370 0.000000 -0.974370 0.000000 0.224951 0.000000 0.000000 1.000000 -0.000001 8.870000 0.000000 0.000000 0.000000 1.000000 "/>
+		</transform>
+		<float name="scale" value="3"/>
+	</emitter> -->
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <scale value="1.0 0.1 1.0"/>
+			<rotate x="1" angle="180"/>
+			<translate x="0" y="0" z="2.8"/>
+		</transform>
+
+        <emitter type="area">
+            <rgb name="radiance" value="40.0 45.5 44.0"/>
+        </emitter>
+    </shape>
+
+
+    <shape type="rectangle">
+		<transform name="to_world">
+            <scale value="0.1 1.0 1.0"/>
+			<rotate x="1" angle="180"/>
+			<translate x="0" y="0" z="3.0"/>
+		</transform>
+
+        <emitter type="area">
+            <rgb name="radiance" value="45.5 44.0 40.0"/>
+        </emitter>
+    </shape>
+
+	<texture type="checkerboard" id="planetex">
+		<rgb name="color0" value="0.2"/>
+		<rgb name="color1" value="0.4"/>
+		<transform name="to_uv">
+			<matrix value="8 0 0 0 0 8 0 0 0 0 8 0 0 0 0 1"/>
+		</transform>
+	</texture>
+
+	<bsdf type="diffuse" id="planemat">
+		<ref name="reflectance" id="planetex"/>
+	</bsdf>
+
+	<shape type="serialized" id="Plane-mesh_0">
+		<string name="filename" value="meshes/matpreview.serialized"/>
+		<integer name="shape_index" value="0"/>
+		<transform name="to_world">
+			<rotate z="1" angle="-4.3"/>
+			<matrix value="3.38818 -4.06354 0 -1.74958 4.06354 3.38818 0 1.43683 0 0 5.29076 -0.0120714 0 0 0 1"/>
+		</transform>
+
+		<ref name="bsdf" id="planemat"/>
+	</shape>
+
+	<bsdf type="diffuse" id="object_bsdf">
+        <rgb name="reflectance" value="0.2, 0.25, 0.7"/>
+    </bsdf>
+
+    <shape type="sphere">
+		<transform name="to_world">
+            <scale value="0.7"/>
+			<rotate z="1" angle="225"/>
+			<translate x="0" y="0" z="1.0"/>
+		</transform>
+        <ref id="object_bsdf"/>
+    </shape>
+</scene>

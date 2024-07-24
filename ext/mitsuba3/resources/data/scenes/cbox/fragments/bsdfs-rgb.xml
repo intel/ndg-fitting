@@ -1,0 +1,23 @@
+<scene version="3.0.0">
+
+    <bsdf type="diffuse" id="box">
+        <rgb name="reflectance" value="0.45, 0.30, 0.90"/>
+    </bsdf>
+
+    <bsdf type="diffuse" id="white">
+        <rgb name="reflectance" value="0.885809, 0.698859, 0.666422"/>
+    </bsdf>
+
+    <bsdf type="diffuse" id="red">
+        <rgb name="reflectance" value="0.570068, 0.0430135, 0.0443706"/>
+    </bsdf>
+
+    <bsdf type="diffuse" id="green">
+        <rgb name="reflectance" value="0.105421, 0.37798, 0.076425"/>
+    </bsdf>
+
+    <bsdf type="diffuse" id="light">
+        <rgb name="reflectance" value="0.936461, 0.740433, 0.705267"/>
+    </bsdf>
+
+</scene>

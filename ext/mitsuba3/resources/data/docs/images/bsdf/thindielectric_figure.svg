@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+
+<!-- Page 1 -->
+<svg x="0" y="0" width="320" height="158" viewBox="0 0 320 158" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+style="display: block;margin-left: auto;margin-right: auto;">
+<defs>
+<clipPath id="c_1"><path d="M0,0H320V158H0Z"/></clipPath>
+<clipPath id="c0"><path d="M0,158.9V0H320.8V158.9Z"/></clipPath>
+
+<style type="text/css"><![CDATA[
+text { white-space: pre; }
+path, image { pointer-events: none; }
+
+.s1{
+font-size: 33.61px;
+font-family: MyriadPro-Regular_8;
+fill: #231F20;
+}
+
+.g0{
+fill: #E7F6FD;
+}
+.g1{
+fill: none;
+stroke: #231F20;
+stroke-width: 1.529;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2{
+fill: none;
+stroke: #231F20;
+stroke-width: 1.527;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g3{
+fill: #231F20;
+}
+
+]]></style>
+
+</defs>
+<g clip-path="url(#c_1)">
+<path d="M0,0
+L0,158
+L320,158
+L320,0 Z " 
+fill="#FFFFFF" stroke="none"/>
+<path d="M0,126.2H320.8V72.7H0v53.5Z" class="g0"/>
+<g clip-path="url(#c0)">
+<path d="M332.8,72.7H-29.5v53.5H332.8V72.7Z" class="g1"/>
+</g>
+<path d="M3.7,4.3L110,67.9" class="g2"/>
+<path d="M106.7,69.4l11.5,3.2L109.9,64Z" class="g3"/>
+<path d="M163.7,72.7L193.5,54.9" class="g2"/>
+<path d="M193.2,58.6L201.6,50l-11.5,3.2Z" class="g3"/>
+<path d="M118.2,72.7l18.9,44.8" class="g2"/>
+<path d="M133.5,116.7l7.4,9.5l-1.7,-11.9Z" class="g3"/>
+<path d="M141.1,126.2L160,81.5" class="g2"/>
+<path d="M161.9,84.6l1.6,-11.9l-7.3,9.5Z" class="g3"/>
+<path d="M141.3,126.2l28.8,17.1" class="g2"/>
+<path d="M166.7,144.8l11.6,3.3l-8.4,-8.6Z" class="g3"/>
+<path d="M210.3,72.7L240.1,54.9" class="g2"/>
+<path d="M239.8,58.6L248.2,50l-11.5,3.2Z" class="g3"/>
+<path d="M164.8,72.7l18.9,44.8" class="g2"/>
+<path d="M180.1,116.7l7.4,9.5l-1.7,-11.9Z" class="g3"/>
+<path d="M187.7,126.2L206.6,81.5" class="g2"/>
+<path d="M208.5,84.6l1.6,-11.9l-7.3,9.5Z" class="g3"/>
+<path d="M187.9,126.2l28.8,17.1" class="g2"/>
+<path d="M213.3,144.8l11.5,3.3l-8.3,-8.6Z" class="g3"/>
+<path d="M257.3,72.7L287.1,54.9" class="g2"/>
+<path d="M286.8,58.6L295.2,50l-11.6,3.2Z" class="g3"/>
+<path d="M211.7,72.7l18.9,44.8" class="g2"/>
+<path d="M227.1,116.7l7.3,9.5l-1.6,-11.9Z" class="g3"/>
+<path d="M234.7,126.2L253.6,81.5" class="g2"/>
+<path d="M255.5,84.6l1.6,-11.9l-7.4,9.5Z" class="g3"/>
+<path d="M234.9,126.2l28.7,17.1" class="g2"/>
+<path d="M260.3,144.8l11.5,3.3l-8.3,-8.6Z" class="g3"/>
+<text x="263" y="102" class="s1">...</text>
+<path d="M118,72.7L147.8,54.9" class="g2"/>
+<path d="M147.5,58.6L155.9,50l-11.6,3.2Z" class="g3"/>
+
+</g>
+
+<!-- Any embedded fonts defined here -->
+<style type="text/css" ><![CDATA[
+
+@font-face {
+	font-family: MyriadPro-Regular_8;
+	src: url("fonts/MyriadPro-Regular_8.woff") format("woff");
+}
+
+]]></style>
+
+</svg>
