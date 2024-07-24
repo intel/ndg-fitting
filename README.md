@@ -16,9 +16,9 @@ This codebase was developed and tested on Windows, we would like to support more
 
 ### Motivation
 
-This code base is meant to be used to replace the usage of neural networks (mainly MLPs) with N-Dimensional Gaussian mixtures to increase training from hours to minutes. 
+This code base is meant to be used to replace the usage of neural networks (mainly MLPs) with N-Dimensional Gaussian mixtures to improve training from hours to minutes. 
 
-Ideal scenarios are cases where the target application has many input dimensions and with strong inter-dependencies and anisotropy. We demonstrate two scenarios:
+Ideal scenarios are cases where the target application has many input dimensions with strong inter-dependencies. We demonstrate two scenarios:
 
 * Global Illumination with 10D+: MLPs have been used to turn G-Buffer renderings into global illumination images in previous work but usually took many hours. Our mixture can be trained in minutes.
 
@@ -74,7 +74,7 @@ The CD and Tools models shown in the paper are pending approval and should be up
 
 Currently our method and specifically the refinement does not support 360 scenes. In cases where the initialization of Gaussians is very approximate the refinement cannot overcome the local minima. We are aiming to adapt our refinement for that scenario in the future. For now you either need a good initialization or mostly front facing scenes.
 
-## Global Illumination (./synthetic)
+## Global Illumination `(./synthetic)`
 
 In this application we take a **custom** Mitsuba 3 scene with optional variability, render buffers and evaluate the Gaussian Mixture on the surfaces of the scene.
 
