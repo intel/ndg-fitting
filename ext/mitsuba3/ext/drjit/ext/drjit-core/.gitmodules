@@ -1,7 +1,0 @@
-[submodule "ext/robin_map"]
-    path = ext/robin_map
-    url = https://github.com/Tessil/robin-map
-
-[submodule "ext/nanothread"]
-    path = ext/nanothread
-    url = https://github.com/mitsuba-renderer/nanothread

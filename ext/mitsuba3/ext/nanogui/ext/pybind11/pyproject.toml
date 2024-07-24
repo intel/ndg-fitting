@@ -1,3 +1,0 @@
-[build-system]
-requires = ["setuptools", "wheel", "cmake==3.18.0", "ninja"]
-build-backend = "setuptools.build_meta"

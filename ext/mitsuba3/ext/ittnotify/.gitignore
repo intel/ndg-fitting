@@ -1,8 +1,0 @@
-build_win/
-*.pyc
-*.pyo
-bin/
-.vs/
-obj/
-*.user
-
