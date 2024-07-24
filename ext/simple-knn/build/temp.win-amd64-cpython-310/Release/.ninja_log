@@ -1,7 +1,0 @@
-# ninja log v5
-2	7804	7289379415085471	D:/source/instant-active-exploration/ext/simple-knn/build/temp.win-amd64-cpython-310/Release/simple_knn.obj	b88010bdb34db6b2
-0	7894	7289379415995472	D:/source/instant-active-exploration/ext/simple-knn/build/temp.win-amd64-cpython-310/Release/ext.obj	799aca91841c0324
-4	22965	7289379566563661	D:/source/instant-active-exploration/ext/simple-knn/build/temp.win-amd64-cpython-310/Release/spatial.obj	114df1bc363a7d06
-10	7753	7435269149829260	D:/ndg-release/ext/simple-knn/build/temp.win-amd64-cpython-310/Release/ext.obj	3a8d09c32891b89b
-13	8135	7435269153680239	D:/ndg-release/ext/simple-knn/build/temp.win-amd64-cpython-310/Release/simple_knn.obj	5fe8aec52aabed7f
-15	23487	7435269306919582	D:/ndg-release/ext/simple-knn/build/temp.win-amd64-cpython-310/Release/spatial.obj	c809e7551e72f81e
