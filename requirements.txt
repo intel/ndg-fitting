@@ -11,4 +11,4 @@ scipy==1.14.0
 taichi==1.6.0
 torch==2.0.1+cu118
 torch_ema==0.3
-tqdm==4.64.1
+tqdm==4.66.3
