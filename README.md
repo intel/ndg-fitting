@@ -149,7 +149,3 @@ We believe that our N-Dimensional Gaussian Generator is a good fit for various a
 
 We aim to improve this apect of the method, so your feedback is valuable.
 
-## Future TODOs
-
-- [ ] Upload pretrained models and scenes
-
