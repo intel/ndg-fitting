@@ -27,8 +27,19 @@ def slice_gaussian(m, q, v, c_dim):
     return m_cond, v_cond, pdf_cond
 
 
+#
+# Copyright (C) 2023, Inria
+# GRAPHDECO research group, https://team.inria.fr/graphdeco
+# All rights reserved.
+#
+# This software is free for non-commercial, research and evaluation use
+# under the terms of the LICENSE.md file.
+#
+# For inquiries contact  george.drettakis@inria.fr
+#
+
 """
-Rest is adapted from https://github.com/graphdeco-inria/gaussian-splatting
+Rest is adapted from https://github.com/graphdeco-inria/gaussian-splatting/scene/dataset_readers.py
 """
 
 

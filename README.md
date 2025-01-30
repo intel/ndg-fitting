@@ -149,3 +149,7 @@ We believe that our N-Dimensional Gaussian Generator is a good fit for various a
 
 We aim to improve this apect of the method, so your feedback is valuable.
 
+## License Note
+
+The license of the `diff-gaussian-rasterization` module is defined in `https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/LICENSE.md#gaussian-splatting-license`
+
