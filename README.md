@@ -1,4 +1,4 @@
-# N-Dimensional Gaussians for Fitting of High Dimensional Functions
+# N-Dimensional Gaussians for Fitting of High Dimensional Functions 
 
 ![Teaser](https://www.sdiolatz.info/ndg-fitting/static/images/teaser.png)
 
